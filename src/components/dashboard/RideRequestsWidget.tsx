@@ -80,8 +80,7 @@ const RideRequestsWidget: React.FC = () => {
               </div>
               <Progress 
                 value={ride.progress} 
-                className="h-1.5" 
-                className={ride.status === 'pending' ? 'bg-amber-500' : 'bg-primary'}
+                className={`h-1.5 ${ride.status === 'pending' ? 'bg-amber-500' : ''}`}
               />
             </div>
           ))}

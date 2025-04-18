@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CalendarDays, ChevronRight, Clock, MoreHorizontal, Plane, Bus, SoccerBall } from 'lucide-react';
+import { CalendarDays, ChevronRight, Clock, MoreHorizontal, Plane, Bus, Activity } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -21,7 +21,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ name, type, progress, dueDate
       case 'Drop-off':
         return <Bus className="h-4 w-4" />;
       case 'Match':
-        return <SoccerBall className="h-4 w-4" />;
+        return <Activity className="h-4 w-4" />;
       default:
         return null;
     }
@@ -93,4 +93,3 @@ const ProjectsOverview: React.FC = () => {
 };
 
 export default ProjectsOverview;
-
