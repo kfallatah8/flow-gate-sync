@@ -28,9 +28,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     
     // For demo, we accept any password, but in a real app this would validate
-    const success = login(email, password, activeTab);
-    
-    if (!success) {
+    if (login(email, password, activeTab)) {
+      // Login successful, navigation is handled in the login function
+    } else {
       toast({
         variant: "destructive",
         title: "Login Failed",

@@ -108,8 +108,8 @@ const Schedule: React.FC = () => {
       case 'transfer': return 'secondary';
       case 'training': return 'outline';
       case 'media': return 'destructive';
-      case 'meeting': return '';
-      case 'meal': return '';
+      case 'meeting': return 'outline';
+      case 'meal': return 'outline';
       default: return 'outline';
     }
   };
