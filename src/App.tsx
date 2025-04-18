@@ -12,6 +12,7 @@ import DriverDashboard from "./pages/DriverDashboard";
 import Schedule from "./pages/Schedule";
 import Guidelines from "./pages/Guidelines";
 import Tasks from "./pages/Tasks";
+import FormSubmissions from "./pages/FormSubmissions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/guidelines" element={<Guidelines />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/form-submissions" element={<FormSubmissions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />

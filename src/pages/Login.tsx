@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,9 +27,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     
     // For demo, we accept any password, but in a real app this would validate
-    if (login(email, password, activeTab)) {
-      // Login successful, navigation is handled in the login function
-    } else {
+    const success = login(email, password, activeTab);
+    
+    if (!success) {
       toast({
         variant: "destructive",
         title: "Login Failed",

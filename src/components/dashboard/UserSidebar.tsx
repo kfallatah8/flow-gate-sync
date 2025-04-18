@@ -1,7 +1,20 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { CalendarDays, CheckSquare, FileText, Activity, Home, Truck, MapPin, Users, Settings, PanelLeft } from 'lucide-react';
+import { 
+  CalendarDays, 
+  CheckSquare, 
+  FileText, 
+  Activity, 
+  Home, 
+  Truck, 
+  MapPin, 
+  Users, 
+  Settings, 
+  PanelLeft,
+  FileInput,
+  MessageSquare 
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { UserRole } from '@/context/AuthContext';
@@ -43,6 +56,18 @@ const UserSidebar: React.FC = () => {
       roles: ['manager'] 
     },
     { 
+      icon: FileInput, 
+      label: 'Form Submissions', 
+      href: '/form-submissions',
+      roles: ['manager'] 
+    },
+    { 
+      icon: MessageSquare, 
+      label: 'Messaging', 
+      href: '/messaging',
+      roles: ['manager'] 
+    },
+    { 
       icon: MapPin, 
       label: 'Request Ride', 
       href: '/request',
@@ -70,7 +95,7 @@ const UserSidebar: React.FC = () => {
       icon: CheckSquare, 
       label: 'Daily Tasks', 
       href: '/tasks',
-      roles: ['driver'] 
+      roles: ['driver', 'manager'] 
     },
     { 
       icon: Settings, 

@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Bell, LogOut, MessageSquare, Search, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
 import { useNavigate } from 'react-router-dom';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import NotificationsPanel from './NotificationsPanel';
+import ChatPanel from './ChatPanel';
 
 interface UserHeaderProps {
   title?: string;
@@ -13,6 +16,8 @@ interface UserHeaderProps {
 const UserHeader: React.FC<UserHeaderProps> = ({ title = "Dashboard" }) => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
   
   if (!currentUser) {
     navigate('/login');
@@ -41,13 +46,29 @@ const UserHeader: React.FC<UserHeaderProps> = ({ title = "Dashboard" }) => {
             />
           </div>
           
-          <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full"></span>
-          </Button>
-          <Button variant="ghost" size="icon">
-            <MessageSquare className="h-5 w-5" />
-          </Button>
+          <Popover open={notificationsOpen} onOpenChange={setNotificationsOpen}>
+            <PopoverTrigger asChild>
+              <Button variant="ghost" size="icon" className="relative">
+                <Bell className="h-5 w-5" />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full"></span>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80 p-0" align="end">
+              <NotificationsPanel onClose={() => setNotificationsOpen(false)} />
+            </PopoverContent>
+          </Popover>
+          
+          <Popover open={chatOpen} onOpenChange={setChatOpen}>
+            <PopoverTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <MessageSquare className="h-5 w-5" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80 p-0" align="end">
+              <ChatPanel onClose={() => setChatOpen(false)} />
+            </PopoverContent>
+          </Popover>
+          
           <Button variant="ghost" size="icon" className="rounded-full">
             <User className="h-5 w-5" />
           </Button>
