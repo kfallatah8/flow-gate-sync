@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, MapOff } from 'lucide-react';
+import { ArrowLeft, MapPin } from 'lucide-react';
 
 const NotFound = () => {
   return (
@@ -10,7 +10,7 @@ const NotFound = () => {
       <div className="space-y-4">
         <div className="flex justify-center">
           <div className="rounded-full bg-muted/50 p-6">
-            <MapOff className="h-12 w-12 text-muted-foreground" />
+            <MapPin className="h-12 w-12 text-muted-foreground" />
           </div>
         </div>
         <h1 className="text-4xl font-bold">Page Not Found</h1>
