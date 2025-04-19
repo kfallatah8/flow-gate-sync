@@ -91,7 +91,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onClose }) => {
             <AvatarFallback>SV</AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="font-semibold">Supervisor</h3>
+            <h3 className="font-semibold text-white">Supervisor</h3>
             <p className="text-xs text-muted-foreground">Online</p>
           </div>
         </div>
@@ -122,7 +122,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onClose }) => {
                   <div>
                     <div className={cn(
                       "rounded-lg p-3",
-                      isMe ? "bg-primary text-primary-foreground" : "bg-secondary"
+                      isMe ? "bg-primary text-primary-foreground" : "bg-secondary text-white"
                     )}>
                       <p className="text-sm">{message.content}</p>
                     </div>

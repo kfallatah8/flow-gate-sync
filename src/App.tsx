@@ -13,6 +13,8 @@ import Schedule from "./pages/Schedule";
 import Guidelines from "./pages/Guidelines";
 import Tasks from "./pages/Tasks";
 import FormSubmissions from "./pages/FormSubmissions";
+import TeamManagement from "./pages/TeamManagement";
+import FleetManagement from "./pages/FleetManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
         <Route path="/guidelines" element={<Guidelines />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/form-submissions" element={<FormSubmissions />} />
+        <Route path="/team" element={<TeamManagement />} />
+        <Route path="/fleet" element={<FleetManagement />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
