@@ -14,7 +14,7 @@ interface User {
 
 interface AuthContextType {
   currentUser: User | null;
-  login: (email: string, password: string, role: UserRole) => void;
+  login: (email: string, password: string, role: UserRole) => boolean; // Changed return type to boolean
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -58,7 +58,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = (email: string, password: string, role: UserRole) => {
+  const login = (email: string, password: string, role: UserRole): boolean => {
     // Simple mock authentication
     const user = USERS.find(u => u.email === email && u.role === role);
     
