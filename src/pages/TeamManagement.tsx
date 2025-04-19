@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { Users, UserPlus } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface TeamMember {
   id: string;
@@ -15,67 +16,96 @@ interface TeamMember {
   lastActive: string;
 }
 
-const teamMembers: TeamMember[] = [
-  {
-    id: '1',
-    name: 'John Doe',
-    role: 'Driver',
-    status: 'active',
-    lastActive: 'Now'
-  },
-  {
-    id: '2',
-    name: 'Jane Smith',
-    role: 'AFC',
-    status: 'busy',
-    lastActive: '5m ago'
-  },
-  {
-    id: '3',
-    name: 'Mike Johnson',
-    role: 'Driver',
-    status: 'offline',
-    lastActive: '1h ago'
-  },
-];
-
 const TeamManagement: React.FC = () => {
+  const { t } = useLanguage();
+
+  const teamMembers: TeamMember[] = [
+    {
+      id: '1',
+      name: 'John Doe',
+      role: 'Driver',
+      status: 'active',
+      lastActive: 'Now'
+    },
+    {
+      id: '2',
+      name: 'Jane Smith',
+      role: 'AFC',
+      status: 'busy',
+      lastActive: '5m ago'
+    },
+    {
+      id: '3',
+      name: 'Mike Johnson',
+      role: 'Driver',
+      status: 'offline',
+      lastActive: '1h ago'
+    },
+    {
+      id: '4',
+      name: 'Sara Wilson',
+      role: 'Manager',
+      status: 'active',
+      lastActive: '2m ago'
+    },
+    {
+      id: '5',
+      name: 'Alex Rahman',
+      role: 'Security',
+      status: 'offline',
+      lastActive: '3h ago'
+    },
+  ];
+
+  const getStatusTranslation = (status: string) => {
+    switch (status) {
+      case 'active': return t('active');
+      case 'busy': return t('busy');
+      default: return t('offline');
+    }
+  };
+
+  const getStatusVariant = (status: string) => {
+    switch (status) {
+      case 'active': return 'outline' as const;
+      case 'busy': return 'secondary' as const;
+      default: return 'default' as const;
+    }
+  };
+
   return (
-    <DashboardLayout title="Team Management" requiredRole="manager">
+    <DashboardLayout title={t('teamManagement')} requiredRole="manager">
       <div className="container mx-auto p-6">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             <Users className="h-6 w-6" />
-            <h1 className="text-2xl font-bold">Team Members</h1>
+            <h1 className="text-2xl font-bold">{t('teamMembers')}</h1>
           </div>
           <Button>
             <UserPlus className="h-4 w-4 mr-2" />
-            Add Member
+            {t('addMember')}
           </Button>
         </div>
 
         <ScrollArea className="h-[calc(100vh-12rem)]">
-          <div className="grid gap-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member) => (
               <Card key={member.id}>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-lg font-bold">{member.name}</CardTitle>
                   <Badge
-                    variant={
-                      member.status === 'active' ? 'success' :
-                      member.status === 'busy' ? 'warning' : 'secondary'
-                    }
+                    variant={getStatusVariant(member.status)}
                   >
-                    {member.status}
+                    {getStatusTranslation(member.status)}
                   </Badge>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-1">
                     <div className="text-sm text-muted-foreground">
-                      Role: {member.role}
+                      {t('role')}: {member.role}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      Last active: {member.lastActive}
+                      {t('lastActive')}: {member.lastActive}
                     </div>
                   </div>
                 </CardContent>

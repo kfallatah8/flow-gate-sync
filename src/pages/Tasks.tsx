@@ -5,12 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Tasks: React.FC = () => {
+  const { t } = useLanguage();
+  
   const tasks = [
     {
       title: "Morning Vehicle Inspection",
-      status: "pending",
+      status: "completed",
       dueTime: "08:00 AM",
       assigned: "Driver Team",
     },
@@ -22,14 +25,30 @@ const Tasks: React.FC = () => {
     },
     {
       title: "Passenger Count Report",
-      status: "in-progress",
+      status: "inProgress",
       dueTime: "02:00 PM",
       assigned: "AFC Team",
     },
   ];
 
+  const getStatusTranslation = (status: string) => {
+    switch (status) {
+      case 'completed': return t('completed');
+      case 'inProgress': return t('inProgress');
+      default: return t('pending');
+    }
+  };
+
+  const getStatusVariant = (status: string) => {
+    switch (status) {
+      case 'completed': return 'outline' as const;
+      case 'inProgress': return 'secondary' as const;
+      default: return 'default' as const;
+    }
+  };
+
   return (
-    <DashboardLayout title="Daily Tasks">
+    <DashboardLayout title={t('dailyTasks')}>
       <div className="container mx-auto p-6">
         <ScrollArea className="h-[calc(100vh-12rem)]">
           <div className="space-y-4">
@@ -41,23 +60,15 @@ const Tasks: React.FC = () => {
                       <Checkbox id={`task-${index}`} />
                       <CardTitle className="text-lg">{task.title}</CardTitle>
                     </div>
-                    <Badge 
-                      variant={
-                        task.status === 'completed' 
-                          ? 'success' 
-                          : task.status === 'in-progress' 
-                          ? 'warning' 
-                          : 'default'
-                      }
-                    >
-                      {task.status}
+                    <Badge variant={getStatusVariant(task.status)}>
+                      {getStatusTranslation(task.status)}
                     </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>Due: {task.dueTime}</span>
-                    <span>Assigned to: {task.assigned}</span>
+                    <span>{t('due')}: {task.dueTime}</span>
+                    <span>{t('assignedTo')}: {task.assigned}</span>
                   </div>
                 </CardContent>
               </Card>

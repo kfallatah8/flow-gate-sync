@@ -15,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface TaskFormDialogProps {
   type: 'arrival' | 'departure';
@@ -39,6 +40,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
   onClose,
   onSubmit 
 }) => {
+  const { t } = useLanguage();
   const [location, setLocation] = useState('Gate 4');
   const [status, setStatus] = useState<'ok' | 'issue' | 'critical'>('ok');
   const [note, setNote] = useState('');
@@ -179,7 +181,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
     
     toast({
       title: "Form Submitted",
-      description: `${type === 'arrival' ? 'Arrival' : 'Departure'} form submitted successfully!`,
+      description: `${t(type === 'arrival' ? 'arrivalForm' : 'departureForm')} submitted successfully!`,
     });
     
     onClose();
@@ -201,14 +203,14 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>
-            {type === 'arrival' ? 'Arrival Form' : 'Departure Form'}
+            {t(type === 'arrival' ? 'arrivalForm' : 'departureForm')}
           </DialogTitle>
         </DialogHeader>
         
         <div className="grid gap-4 py-4">
           {/* Location field */}
           <div className="grid gap-2">
-            <Label htmlFor="location">Location</Label>
+            <Label htmlFor="location">{t('location')}</Label>
             <Input
               id="location"
               value={location}
@@ -219,7 +221,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
           
           {/* Status selection */}
           <div className="grid gap-2">
-            <Label>Status</Label>
+            <Label>{t('status')}</Label>
             <RadioGroup
               value={status}
               onValueChange={(value) => setStatus(value as 'ok' | 'issue' | 'critical')}
@@ -227,34 +229,34 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="ok" id="status-ok" />
-                <Label htmlFor="status-ok" className="text-green-500">OK</Label>
+                <Label htmlFor="status-ok" className="text-green-500">{t('ok')}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="issue" id="status-issue" />
-                <Label htmlFor="status-issue" className="text-amber-500">Issue</Label>
+                <Label htmlFor="status-issue" className="text-amber-500">{t('issue')}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="critical" id="status-critical" />
-                <Label htmlFor="status-critical" className="text-red-500">Critical</Label>
+                <Label htmlFor="status-critical" className="text-red-500">{t('critical')}</Label>
               </div>
             </RadioGroup>
           </div>
           
           {/* Notes */}
           <div className="grid gap-2">
-            <Label htmlFor="note">Notes</Label>
+            <Label htmlFor="note">{t('notes')}</Label>
             <Textarea
               id="note"
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              placeholder="Add any observations or issues here"
+              placeholder={t('addNotes')}
               className="min-h-[100px]"
             />
           </div>
           
           {/* Photo capture/upload */}
           <div className="space-y-2">
-            <Label>Photo Evidence</Label>
+            <Label>{t('photoEvidence')}</Label>
             
             {photo ? (
               <div className="relative">
@@ -297,7 +299,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
                   className="w-full" 
                   onClick={handleTakePhoto}
                 >
-                  Capture Photo
+                  {t('capturePhoto')}
                 </Button>
               </div>
             ) : (
@@ -309,7 +311,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
                   className="w-full"
                 >
                   <Camera className="mr-2 h-4 w-4" />
-                  Take Photo
+                  {t('takePhoto')}
                 </Button>
                 
                 <Button 
@@ -319,7 +321,7 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
                   className="w-full"
                 >
                   <Upload className="mr-2 h-4 w-4" />
-                  Upload
+                  {t('uploadPhoto')}
                 </Button>
                 
                 <input
@@ -338,10 +340,10 @@ const TaskFormDialog: React.FC<TaskFormDialogProps> = ({
         
         <DialogFooter className="sm:justify-end">
           <Button type="button" variant="secondary" onClick={onClose}>
-            Cancel
+            {t('cancel')}
           </Button>
           <Button type="button" onClick={handleSubmitForm}>
-            Submit
+            {t('submit')}
           </Button>
         </DialogFooter>
       </DialogContent>

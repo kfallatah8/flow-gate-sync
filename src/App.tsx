@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "./context/LanguageContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import ManagerDashboard from "./pages/ManagerDashboard";
@@ -22,22 +23,24 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/manager" element={<ManagerDashboard />} />
-        <Route path="/afc" element={<AFCDashboard />} />
-        <Route path="/driver" element={<DriverDashboard />} />
-        <Route path="/schedule" element={<Schedule />} />
-        <Route path="/guidelines" element={<Guidelines />} />
-        <Route path="/tasks" element={<Tasks />} />
-        <Route path="/form-submissions" element={<FormSubmissions />} />
-        <Route path="/team" element={<TeamManagement />} />
-        <Route path="/fleet" element={<FleetManagement />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Toaster />
-      <Sonner />
+      <LanguageProvider>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/manager" element={<ManagerDashboard />} />
+          <Route path="/afc" element={<AFCDashboard />} />
+          <Route path="/driver" element={<DriverDashboard />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/guidelines" element={<Guidelines />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/form-submissions" element={<FormSubmissions />} />
+          <Route path="/team" element={<TeamManagement />} />
+          <Route path="/fleet" element={<FleetManagement />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
+        <Sonner />
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
