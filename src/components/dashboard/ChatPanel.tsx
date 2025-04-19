@@ -83,8 +83,8 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onClose }) => {
   };
   
   return (
-    <div className="w-80 bg-popover border rounded-md shadow-lg flex flex-col h-[500px]">
-      <div className="flex items-center justify-between p-4 border-b">
+    <div className="w-80 bg-secondary text-white border rounded-md shadow-lg flex flex-col h-[500px]">
+      <div className="flex items-center justify-between p-4 border-b border-border/40">
         <div className="flex items-center gap-2">
           <Avatar className="h-8 w-8">
             <AvatarImage src="" alt="Supervisor" />
@@ -122,7 +122,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onClose }) => {
                   <div>
                     <div className={cn(
                       "rounded-lg p-3",
-                      isMe ? "bg-primary text-primary-foreground" : "bg-secondary text-white"
+                      isMe ? "bg-primary text-white" : "bg-secondary text-white"
                     )}>
                       <p className="text-sm">{message.content}</p>
                     </div>
@@ -137,19 +137,19 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onClose }) => {
         </div>
       </ScrollArea>
       
-      <div className="p-4 border-t">
+      <div className="p-4 border-t border-border/40">
         <form onSubmit={handleSendMessage} className="flex gap-2">
           <Button 
             type="button" 
             size="icon" 
             variant="ghost" 
-            className="shrink-0"
+            className="shrink-0 text-white"
           >
             <Paperclip className="h-4 w-4" />
             <span className="sr-only">Attach file</span>
           </Button>
           <Input
-            className="flex-1"
+            className="flex-1 bg-secondary-foreground text-white"
             placeholder="Type a message..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
