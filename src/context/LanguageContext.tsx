@@ -18,6 +18,8 @@ export const translations = {
     logout: 'Logout',
     search: 'Search',
     notifications: 'Notifications',
+    settings: 'Settings',
+    messaging: 'Messaging',
     
     // Form Submissions
     recentSubmissions: 'Recent Submissions',
@@ -61,6 +63,66 @@ export const translations = {
     emergencyProcedures: 'Emergency Procedures',
     communicationProtocol: 'Communication Protocol',
     
+    // Settings
+    accountSettings: 'Account',
+    appearance: 'Appearance',
+    profileInformation: 'Profile Information',
+    updateYourAccountInfo: 'Update your account details',
+    name: 'Name',
+    email: 'Email',
+    bio: 'Bio',
+    saveChanges: 'Save Changes',
+    loginSettings: 'Login Settings',
+    manageYourLoginInformation: 'Change your password',
+    currentPassword: 'Current Password',
+    newPassword: 'New Password',
+    confirmPassword: 'Confirm Password',
+    updatePassword: 'Update Password',
+    notificationSettings: 'Notification Settings',
+    manageYourNotificationPreferences: 'Choose what notifications you receive',
+    rideAlerts: 'Ride Alerts',
+    receiveAlertsForNewRideAssignments: 'Receive alerts for new ride assignments',
+    scheduleChanges: 'Schedule Changes',
+    notifyMeWhenMyScheduleChanges: 'Notify me when my schedule changes',
+    teamMessages: 'Team Messages',
+    receiveNotificationsForTeamMessages: 'Receive notifications for team messages',
+    emailNotifications: 'Email Notifications',
+    receiveEmailSummariesDailyActivity: 'Receive email summaries of daily activity',
+    appearanceSettings: 'Appearance Settings',
+    customizeYourInterface: 'Customize how FlowGate looks',
+    darkMode: 'Dark Mode',
+    toggleDarkMode: 'Toggle dark mode on or off',
+    compactView: 'Compact View',
+    useCompactViewForDashboard: 'Use compact view for dashboard',
+
+    // Messaging
+    searchContacts: 'Search contacts',
+    all: 'All',
+    unread: 'Unread',
+    typeMessage: 'Type a message...',
+    send: 'Send',
+    selectConversation: 'Select a conversation',
+    chooseContactToStartMessaging: 'Choose a contact to start messaging',
+    
+    // Request Ride
+    requestRide: 'Request Ride',
+    newRideRequest: 'New Ride Request',
+    pickupLocation: 'Pickup Location',
+    selectPickupLocation: 'Select pickup location',
+    destination: 'Destination',
+    selectDestination: 'Select destination',
+    date: 'Date',
+    time: 'Time',
+    numberOfPassengers: 'Number of Passengers',
+    selectNumberOfPassengers: 'Select number of passengers',
+    specialInstructions: 'Special Instructions',
+    anySpecialRequirementsOrNotes: 'Any special requirements or notes',
+    submitRequest: 'Submit Request',
+    requestSubmitted: 'Request Submitted',
+    yourRideRequestHasBeenSubmittedSuccessfully: 'Your ride request has been submitted successfully',
+    youWillBeNotifiedWhenDriverAssigned: 'You will be notified when a driver is assigned',
+    submitAnotherRequest: 'Submit Another Request',
+    
     // Forms
     arrivalForm: 'Arrival Form',
     departureForm: 'Departure Form',
@@ -79,10 +141,6 @@ export const translations = {
     issue: 'Issue',
     critical: 'Critical',
     completedToday: 'Completed today',
-    
-    // Chat
-    typeMessage: 'Type a message...',
-    send: 'Send'
   },
   ar: {
     // Common
@@ -97,6 +155,8 @@ export const translations = {
     logout: 'تسجيل الخروج',
     search: 'بحث',
     notifications: 'الإشعارات',
+    settings: 'الإعدادات',
+    messaging: 'المراسلات',
     
     // Form Submissions
     recentSubmissions: 'النماذج الأخيرة',
@@ -140,6 +200,66 @@ export const translations = {
     emergencyProcedures: 'إجراءات الطوارئ',
     communicationProtocol: 'بروتوكول الاتصالات',
     
+    // Settings
+    accountSettings: 'الحساب',
+    appearance: 'المظهر',
+    profileInformation: 'معلومات الملف الشخصي',
+    updateYourAccountInfo: 'تحديث تفاصيل حسابك',
+    name: 'الاسم',
+    email: 'البريد الإلكتروني',
+    bio: 'السيرة الذاتية',
+    saveChanges: 'حفظ التغييرات',
+    loginSettings: 'إعدادات تسجيل الدخول',
+    manageYourLoginInformation: 'تغيير كلمة المرور الخاصة بك',
+    currentPassword: 'كلمة المرور الحالية',
+    newPassword: 'كلمة المرور الجديدة',
+    confirmPassword: 'تأكيد كلمة المرور',
+    updatePassword: 'تحديث كلمة المرور',
+    notificationSettings: 'إعدادات الإشعارات',
+    manageYourNotificationPreferences: 'اختر الإشعارات التي تتلقاها',
+    rideAlerts: 'تنبيهات الرحلات',
+    receiveAlertsForNewRideAssignments: 'استلام تنبيهات للرحلات الجديدة',
+    scheduleChanges: 'تغييرات الجدول',
+    notifyMeWhenMyScheduleChanges: 'أبلغني عند تغيير جدولي',
+    teamMessages: 'رسائل الفريق',
+    receiveNotificationsForTeamMessages: 'استلام إشعارات لرسائل الفريق',
+    emailNotifications: 'إشعارات البريد الإلكتروني',
+    receiveEmailSummariesDailyActivity: 'استلام ملخصات البريد الإلكتروني للنشاط اليومي',
+    appearanceSettings: 'إعدادات المظهر',
+    customizeYourInterface: 'تخصيص مظهر فلوغيت',
+    darkMode: 'الوضع المظلم',
+    toggleDarkMode: 'تبديل الوضع المظلم',
+    compactView: 'العرض المدمج',
+    useCompactViewForDashboard: 'استخدم العرض المدمج للوحة المعلومات',
+
+    // Messaging
+    searchContacts: 'البحث عن جهات الاتصال',
+    all: 'الكل',
+    unread: 'غير مقروءة',
+    typeMessage: 'اكتب رسالة...',
+    send: 'إرسال',
+    selectConversation: 'اختر محادثة',
+    chooseContactToStartMessaging: 'اختر جهة اتصال لبدء المراسلة',
+    
+    // Request Ride
+    requestRide: 'طلب رحلة',
+    newRideRequest: 'طلب رحلة جديدة',
+    pickupLocation: 'موقع الاستلام',
+    selectPickupLocation: 'اختر موقع الاستلام',
+    destination: 'الوجهة',
+    selectDestination: 'اختر الوجهة',
+    date: 'التاريخ',
+    time: 'الوقت',
+    numberOfPassengers: 'عدد الركاب',
+    selectNumberOfPassengers: 'اختر عدد الركاب',
+    specialInstructions: 'تعليمات خاصة',
+    anySpecialRequirementsOrNotes: 'أي متطلبات أو ملاحظات خاصة',
+    submitRequest: 'إرسال الطلب',
+    requestSubmitted: 'تم إرسال الطلب',
+    yourRideRequestHasBeenSubmittedSuccessfully: 'تم إرسال طلب الرحلة بنجاح',
+    youWillBeNotifiedWhenDriverAssigned: 'سيتم إخطارك عند تعيين سائق',
+    submitAnotherRequest: 'إرسال طلب آخر',
+    
     // Forms
     arrivalForm: 'نموذج الوصول',
     departureForm: 'نموذج المغادرة',
@@ -158,10 +278,6 @@ export const translations = {
     issue: 'مشكلة',
     critical: 'حرجة',
     completedToday: 'اكتمل اليوم',
-    
-    // Chat
-    typeMessage: 'اكتب رسالة...',
-    send: 'إرسال'
   },
   ur: {
     // Common
@@ -176,6 +292,8 @@ export const translations = {
     logout: 'لاگ آؤٹ',
     search: 'تلاش کریں',
     notifications: 'نوٹیفکیشنز',
+    settings: 'ترتیبات',
+    messaging: 'پیغام رسانی',
     
     // Form Submissions
     recentSubmissions: 'حالیہ جمع کرائے',
@@ -219,6 +337,66 @@ export const translations = {
     emergencyProcedures: 'ہنگامی طریقہ کار',
     communicationProtocol: 'مواصلات کا پروٹوکول',
     
+    // Settings
+    accountSettings: 'اکاؤنٹ',
+    appearance: 'ظاہری شکل',
+    profileInformation: 'پروفائل کی معلومات',
+    updateYourAccountInfo: 'اپنے اکاؤنٹ کی تفصیلات اپ ڈیٹ کریں',
+    name: 'نام',
+    email: 'ای میل',
+    bio: 'بایو',
+    saveChanges: 'تبدیلیاں محفوظ کریں',
+    loginSettings: 'لاگ ان کی ترتیبات',
+    manageYourLoginInformation: 'اپنا پاس ورڈ تبدیل کریں',
+    currentPassword: 'موجودہ پاس ورڈ',
+    newPassword: 'نیا پاس ورڈ',
+    confirmPassword: 'پاس ورڈ کی تصدیق کریں',
+    updatePassword: 'پاس ورڈ اپ ڈیٹ کریں',
+    notificationSettings: 'نوٹیفکیشن کی ترتیبات',
+    manageYourNotificationPreferences: 'اپنی نوٹیفکیشن ترجیحات کا انتظام کریں',
+    rideAlerts: 'سواری الرٹس',
+    receiveAlertsForNewRideAssignments: 'نئی سواری اسائنمنٹس کے لئے الرٹس حاصل کریں',
+    scheduleChanges: 'شیڈول میں تبدیلیاں',
+    notifyMeWhenMyScheduleChanges: 'مجھے مطلع کریں جب میرا شیڈول تبدیل ہو',
+    teamMessages: 'ٹیم کے پیغامات',
+    receiveNotificationsForTeamMessages: 'ٹیم کے پیغامات کے لئے نوٹیفکیشنز حاصل کریں',
+    emailNotifications: 'ای میل نوٹیفکیشنز',
+    receiveEmailSummariesDailyActivity: 'روزانہ کی سرگرمی کے ای میل خلاصے حاصل کریں',
+    appearanceSettings: 'ظاہری شکل کی ترتیبات',
+    customizeYourInterface: 'فلو گیٹ کی ظاہری شکل تبدیل کریں',
+    darkMode: 'ڈارک موڈ',
+    toggleDarkMode: 'ڈارک موڈ آن یا آف کریں',
+    compactView: 'کمپیکٹ ویو',
+    useCompactViewForDashboard: 'ڈیش بورڈ کے لئے کمپیکٹ ویو استعمال کریں',
+
+    // Messaging
+    searchContacts: 'روابط تلاش کریں',
+    all: 'تمام',
+    unread: 'غیر خواندہ',
+    typeMessage: 'پیغام لکھیں...',
+    send: 'بھیجیں',
+    selectConversation: 'ایک گفتگو منتخب کریں',
+    chooseContactToStartMessaging: 'پیغام رسانی شروع کرنے کے لئے ایک رابطہ منتخب کریں',
+    
+    // Request Ride
+    requestRide: 'سواری کی درخواست',
+    newRideRequest: 'نئی سواری کی درخواست',
+    pickupLocation: 'پک اپ کی جگہ',
+    selectPickupLocation: 'پک اپ کی جگہ منتخب کریں',
+    destination: 'منزل',
+    selectDestination: 'منزل منتخب کریں',
+    date: 'تاریخ',
+    time: 'وقت',
+    numberOfPassengers: 'مسافروں کی تعداد',
+    selectNumberOfPassengers: 'مسافروں کی تعداد منتخب کریں',
+    specialInstructions: 'خصوصی ہدایات',
+    anySpecialRequirementsOrNotes: 'کوئی خصوصی ضروریات یا نوٹس',
+    submitRequest: 'درخواست جمع کریں',
+    requestSubmitted: 'درخواست جمع کرائی گئی',
+    yourRideRequestHasBeenSubmittedSuccessfully: 'آپ کی سواری کی درخواست کامیابی سے جمع کرا دی گئی ہے',
+    youWillBeNotifiedWhenDriverAssigned: 'ڈرائیور تعینات کرنے پر آپ کو مطلع کیا جائے گا',
+    submitAnotherRequest: 'ایک اور درخواست جمع کریں',
+    
     // Forms
     arrivalForm: 'آمد کا فارم',
     departureForm: 'روانگی کا فارم',
@@ -237,10 +415,6 @@ export const translations = {
     issue: 'مسئلہ',
     critical: 'نازک',
     completedToday: 'آج مکمل ہوا',
-    
-    // Chat
-    typeMessage: 'پیغام لکھیں...',
-    send: 'بھیجیں'
   }
 };
 

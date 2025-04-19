@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import NotificationsPanel from './NotificationsPanel';
 import ChatPanel from './ChatPanel';
+import LanguageSelector from '../layouts/LanguageSelector';
 
 interface UserHeaderProps {
   title?: string;
@@ -45,6 +46,8 @@ const UserHeader: React.FC<UserHeaderProps> = ({ title = "Dashboard" }) => {
               className="w-[200px] lg:w-[280px] pl-8 bg-background" 
             />
           </div>
+          
+          <LanguageSelector />
           
           <Popover open={notificationsOpen} onOpenChange={setNotificationsOpen}>
             <PopoverTrigger asChild>

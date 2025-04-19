@@ -16,6 +16,10 @@ import Tasks from "./pages/Tasks";
 import FormSubmissions from "./pages/FormSubmissions";
 import TeamManagement from "./pages/TeamManagement";
 import FleetManagement from "./pages/FleetManagement";
+import MyRides from "./pages/MyRides";
+import Settings from "./pages/Settings";
+import Request from "./pages/Request";
+import Messaging from "./pages/Messaging";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +40,10 @@ const App = () => (
           <Route path="/form-submissions" element={<FormSubmissions />} />
           <Route path="/team" element={<TeamManagement />} />
           <Route path="/fleet" element={<FleetManagement />} />
+          <Route path="/my-rides" element={<MyRides />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/request" element={<Request />} />
+          <Route path="/messaging" element={<Messaging />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />
