@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useLanguage } from '@/context/LanguageContext';
+import { useTheme } from '@/context/ThemeContext';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/components/ui/use-toast';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,6 +17,7 @@ import { User, Camera } from 'lucide-react';
 
 const Settings: React.FC = () => {
   const { t } = useLanguage();
+  const { theme, setTheme } = useTheme();
   const { currentUser } = useAuth();
   const { toast } = useToast();
   const [profileData, setProfileData] = useState({
@@ -72,6 +74,10 @@ const Settings: React.FC = () => {
       new: '',
       confirm: ''
     });
+  };
+
+  const toggleDarkMode = (checked: boolean) => {
+    setTheme(checked ? 'dark' : 'light');
   };
 
   return (
@@ -289,7 +295,10 @@ const Settings: React.FC = () => {
                     <p className="font-medium">{t('darkMode')}</p>
                     <p className="text-sm text-muted-foreground">{t('toggleDarkMode')}</p>
                   </div>
-                  <Switch />
+                  <Switch 
+                    checked={theme === 'dark'}
+                    onCheckedChange={toggleDarkMode}
+                  />
                 </div>
                 
                 <div className="flex items-center justify-between">
