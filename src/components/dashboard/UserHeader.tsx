@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Bell, LogOut, MessageSquare, Search, User } from 'lucide-react';
+import { Bell, LogOut, MessageSquare, Search, User, Globe } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
