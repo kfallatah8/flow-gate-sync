@@ -7,10 +7,13 @@ import VehicleMap from '@/components/dashboard/VehicleMap';
 import GateStatusWidget from '@/components/dashboard/GateStatusWidget';
 import RideRequestsWidget from '@/components/dashboard/RideRequestsWidget';
 import AnalyticsOverview from '@/components/dashboard/AnalyticsOverview';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ManagerDashboard: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
-    <DashboardLayout title="Management Dashboard" requiredRole="manager">
+    <DashboardLayout title={t('dashboard')} requiredRole="manager">
       <div className="mx-auto max-w-7xl space-y-6">
         <StatCards />
         

@@ -22,58 +22,58 @@ const MyRides: React.FC = () => {
   const rides: Ride[] = [
     {
       id: 'R-1001',
-      destination: 'Central Stadium',
-      pickupTime: '14:30, Today',
+      destination: t('destination'),
+      pickupTime: '14:30, ' + t('today'),
       status: 'scheduled',
       passengers: 4,
-      pickupLocation: 'Main Campus Gate',
+      pickupLocation: t('pickupLocation'),
     },
     {
       id: 'R-1002',
-      destination: 'West Conference Hall',
-      pickupTime: '16:00, Today',
+      destination: t('destination'),
+      pickupTime: '16:00, ' + t('today'),
       status: 'scheduled',
       passengers: 2,
-      pickupLocation: 'Hotel Entrance',
+      pickupLocation: t('pickupLocation'),
     },
     {
       id: 'R-998',
-      destination: 'Airport Terminal 2',
-      pickupTime: '09:15, Yesterday',
+      destination: t('destination'),
+      pickupTime: '09:15, ' + t('yesterday'),
       status: 'completed',
       passengers: 3,
-      pickupLocation: 'VIP Residence',
+      pickupLocation: t('pickupLocation'),
     },
     {
       id: 'R-997',
-      destination: 'Exhibition Center',
-      pickupTime: '13:45, Yesterday',
+      destination: t('destination'),
+      pickupTime: '13:45, ' + t('yesterday'),
       status: 'cancelled',
       passengers: 5,
-      pickupLocation: 'North Gate',
+      pickupLocation: t('pickupLocation'),
     },
   ];
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'scheduled':
-        return <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-300">Scheduled</Badge>;
+        return <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-300">{t('scheduled')}</Badge>;
       case 'completed':
-        return <Badge variant="outline" className="bg-green-100 text-green-800 border-green-300">Completed</Badge>;
+        return <Badge variant="outline" className="bg-green-100 text-green-800 border-green-300">{t('completed')}</Badge>;
       case 'cancelled':
-        return <Badge variant="outline" className="bg-red-100 text-red-800 border-red-300">Cancelled</Badge>;
+        return <Badge variant="outline" className="bg-red-100 text-red-800 border-red-300">{t('cancelled')}</Badge>;
       default:
-        return <Badge>Unknown</Badge>;
+        return <Badge>{t('unknown')}</Badge>;
     }
   };
 
   return (
-    <DashboardLayout title="My Rides" requiredRole="driver">
+    <DashboardLayout title={t('myRides')} requiredRole="driver">
       <div className="container mx-auto p-6">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             <Car className="h-6 w-6" />
-            <h1 className="text-2xl font-bold">My Rides</h1>
+            <h1 className="text-2xl font-bold">{t('myRides')}</h1>
           </div>
         </div>
 
@@ -96,10 +96,10 @@ const MyRides: React.FC = () => {
                       <span>{ride.pickupLocation}</span>
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      Passengers: {ride.passengers}
+                      {t('numberOfPassengers')}: {ride.passengers}
                     </div>
                     <div className="text-xs text-muted-foreground mt-2">
-                      ID: {ride.id}
+                      {t('id')}: {ride.id}
                     </div>
                   </div>
                 </CardContent>

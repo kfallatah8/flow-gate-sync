@@ -12,22 +12,22 @@ const Tasks: React.FC = () => {
   
   const tasks = [
     {
-      title: "Morning Vehicle Inspection",
+      title: t('morningVehicleInspection'),
       status: "completed",
       dueTime: "08:00 AM",
-      assigned: "Driver Team",
+      assigned: t('driverTeam'),
     },
     {
-      title: "Gate Security Check",
+      title: t('gateSecurityCheck'),
       status: "completed",
       dueTime: "09:00 AM",
-      assigned: "Security Team",
+      assigned: t('securityTeam'),
     },
     {
-      title: "Passenger Count Report",
+      title: t('passengerCountReport'),
       status: "inProgress",
       dueTime: "02:00 PM",
-      assigned: "AFC Team",
+      assigned: t('afcTeam'),
     },
   ];
 

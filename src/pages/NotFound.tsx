@@ -3,8 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, MapPin } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const NotFound = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center text-center p-4">
       <div className="space-y-4">
@@ -21,7 +24,7 @@ const NotFound = () => {
           <Button asChild>
             <Link to="/" className="flex items-center gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Back to Dashboard
+              {t('dashboard')}
             </Link>
           </Button>
         </div>

@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'en' | 'ar' | 'ur';
@@ -38,6 +37,13 @@ export const translations = {
     assignedTo: 'Assigned to',
     completed: 'Completed',
     inProgress: 'In Progress',
+    morningVehicleInspection: 'Morning Vehicle Inspection',
+    gateSecurityCheck: 'Gate Security Check',
+    passengerCountReport: 'Passenger Count Report',
+    driverTeam: 'Driver Team',
+    securityTeam: 'Security Team',
+    afcTeam: 'AFC Team',
+    pending: 'Pending',
     
     // Team Management
     teamMembers: 'Team Members',
@@ -47,6 +53,8 @@ export const translations = {
     active: 'Active',
     offline: 'Offline',
     busy: 'Busy',
+    now: 'Now',
+    ago: 'ago',
     
     // Fleet Management
     fleetVehicles: 'Fleet Vehicles',
@@ -141,6 +149,15 @@ export const translations = {
     issue: 'Issue',
     critical: 'Critical',
     completedToday: 'Completed today',
+    
+    // Ride status
+    scheduled: 'Scheduled',
+    cancelled: 'Cancelled',
+    unknown: 'Unknown',
+    myRides: 'My Rides',
+    passengers: 'Passengers',
+    today: 'Today',
+    yesterday: 'Yesterday',
   },
   ar: {
     // Common
@@ -175,6 +192,13 @@ export const translations = {
     assignedTo: 'مكلف إلى',
     completed: 'مكتمل',
     inProgress: 'قيد التنفيذ',
+    morningVehicleInspection: 'فحص المركبة الصباحي',
+    gateSecurityCheck: 'التحقق من أمن البوابة',
+    passengerCountReport: 'تقرير عدد الركاب',
+    driverTeam: 'فريق السائقين',
+    securityTeam: 'فريق الأمن',
+    afcTeam: 'فريق AFC',
+    pending: 'قيد الانتظار',
     
     // Team Management
     teamMembers: 'أعضاء الفريق',
@@ -184,6 +208,8 @@ export const translations = {
     active: 'نشط',
     offline: 'غير متصل',
     busy: 'مشغول',
+    now: 'الآن',
+    ago: 'مضى',
     
     // Fleet Management
     fleetVehicles: 'مركبات الأسطول',
@@ -216,7 +242,7 @@ export const translations = {
     confirmPassword: 'تأكيد كلمة المرور',
     updatePassword: 'تحديث كلمة المرور',
     notificationSettings: 'إعدادات الإشعارات',
-    manageYourNotificationPreferences: 'اختر الإشعارات التي تتلقاها',
+    manageYourNotificationPreferences: 'اختر ال��شعارات التي تتلقاها',
     rideAlerts: 'تنبيهات الرحلات',
     receiveAlertsForNewRideAssignments: 'استلام تنبيهات للرحلات الجديدة',
     scheduleChanges: 'تغييرات الجدول',
@@ -278,6 +304,15 @@ export const translations = {
     issue: 'مشكلة',
     critical: 'حرجة',
     completedToday: 'اكتمل اليوم',
+    
+    // Ride status
+    scheduled: 'مجدولة',
+    cancelled: 'ملغاة',
+    unknown: 'غير معروف',
+    myRides: 'رحلاتي',
+    passengers: 'الركاب',
+    today: 'اليوم',
+    yesterday: 'أمس',
   },
   ur: {
     // Common
@@ -312,6 +347,13 @@ export const translations = {
     assignedTo: 'تفویض کردہ',
     completed: 'مکمل',
     inProgress: 'جاری ہے',
+    morningVehicleInspection: 'صبح کی گاڑی کی جانچ',
+    gateSecurityCheck: 'گیٹ سکیورٹی چیک',
+    passengerCountReport: 'مسافروں کی تعداد کی رپورٹ',
+    driverTeam: 'ڈرائیور ٹیم',
+    securityTeam: 'سکیورٹی ٹیم',
+    afcTeam: 'اے ایف سی ٹیم',
+    pending: 'زیر التواء',
     
     // Team Management
     teamMembers: 'ٹیم کے ارکان',
@@ -321,6 +363,8 @@ export const translations = {
     active: 'فعال',
     offline: 'آف لائن',
     busy: 'مصروف',
+    now: 'ابھی',
+    ago: 'پہلے',
     
     // Fleet Management
     fleetVehicles: 'فلیٹ گاڑیاں',
@@ -415,6 +459,15 @@ export const translations = {
     issue: 'مسئلہ',
     critical: 'نازک',
     completedToday: 'آج مکمل ہوا',
+    
+    // Ride status
+    scheduled: 'شیڈیول',
+    cancelled: 'منسوخ',
+    unknown: 'نامعلوم',
+    myRides: 'میری سواریاں',
+    passengers: 'مسافر',
+    today: 'آج',
+    yesterday: 'کل',
   }
 };
 
