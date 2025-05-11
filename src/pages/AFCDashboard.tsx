@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -10,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { Clock, CalendarDays, MapPin, Users, Car, Check, Clock8, Route } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/context/LanguageContext';
 
 const AFCDashboard: React.FC = () => {
@@ -81,9 +80,10 @@ const AFCDashboard: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="stadium" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
+                  <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="stadium">{t('matches')}</TabsTrigger>
                     <TabsTrigger value="airport">{t('airport')}</TabsTrigger>
+                    <TabsTrigger value="custom">{t('customLocation')}</TabsTrigger>
                   </TabsList>
                   
                   <TabsContent value="stadium" className="pt-4 space-y-4">
@@ -218,6 +218,81 @@ const AFCDashboard: React.FC = () => {
                         <Label htmlFor="airport-notes">{t('notes')}</Label>
                         <Input
                           id="airport-notes"
+                          placeholder={t('anySpecialRequirementsOrNotes')}
+                        />
+                      </div>
+                      
+                      <Button type="submit" className="w-full">
+                        {t('requestRide')}
+                      </Button>
+                    </form>
+                  </TabsContent>
+
+                  <TabsContent value="custom" className="pt-4 space-y-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="custom-pickup">{t('pickupLocation')}</Label>
+                          <Select defaultValue="hotel">
+                            <SelectTrigger id="custom-pickup">
+                              <SelectValue placeholder={t('selectPickupLocation')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="hotel">{t('teamManagement')} Hotel</SelectItem>
+                              <SelectItem value="training">{t('training')} Facility</SelectItem>
+                              <SelectItem value="media">{t('media')} Center</SelectItem>
+                              <SelectItem value="custom">{t('other')}</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <Label htmlFor="custom-destination">{t('destination')}</Label>
+                          <Input
+                            id="custom-destination"
+                            placeholder={t('enterCustomDestination')}
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="custom-passengers">{t('numberOfPassengers')}</Label>
+                          <Select defaultValue="1">
+                            <SelectTrigger id="custom-passengers">
+                              <SelectValue placeholder={t('selectNumberOfPassengers')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="1">1 {t('passengers')}</SelectItem>
+                              <SelectItem value="2">2 {t('passengers')}</SelectItem>
+                              <SelectItem value="3">3 {t('passengers')}</SelectItem>
+                              <SelectItem value="4">4+ {t('passengers')}</SelectItem>
+                              <SelectItem value="team">{t('teamManagement')}</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <Label htmlFor="custom-datetime">{t('date')} & {t('time')}</Label>
+                          <Input
+                            id="custom-datetime"
+                            type="datetime-local"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="custom-address">{t('fullDestinationAddress')}</Label>
+                        <Input
+                          id="custom-address"
+                          placeholder={t('enterFullAddress')}
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="custom-notes">{t('notes')}</Label>
+                        <Input
+                          id="custom-notes"
                           placeholder={t('anySpecialRequirementsOrNotes')}
                         />
                       </div>

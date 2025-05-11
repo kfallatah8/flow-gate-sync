@@ -16,6 +16,7 @@ import {
 import { MapPin, CalendarClock, Users, Clock } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from '@/context/LanguageContext';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Request: React.FC = () => {
   const { toast } = useToast();
@@ -40,89 +41,189 @@ const Request: React.FC = () => {
               <CardTitle>{t('newRideRequest')}</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmitRequest} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="pickup-location">
-                    <MapPin className="h-4 w-4 inline mr-2" />
-                    {t('pickupLocation')}
-                  </Label>
-                  <Select required>
-                    <SelectTrigger id="pickup-location">
-                      <SelectValue placeholder={t('selectPickupLocation')} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="main-gate">Main Gate</SelectItem>
-                      <SelectItem value="north-entrance">North Entrance</SelectItem>
-                      <SelectItem value="hotel-lobby">Hotel Lobby</SelectItem>
-                      <SelectItem value="stadium">Stadium Entrance</SelectItem>
-                      <SelectItem value="convention-center">Convention Center</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+              <Tabs defaultValue="standard" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="standard">{t('standardLocations')}</TabsTrigger>
+                  <TabsTrigger value="custom">{t('customLocation')}</TabsTrigger>
+                </TabsList>
                 
-                <div className="space-y-2">
-                  <Label htmlFor="destination">
-                    <MapPin className="h-4 w-4 inline mr-2" />
-                    {t('destination')}
-                  </Label>
-                  <Select required>
-                    <SelectTrigger id="destination">
-                      <SelectValue placeholder={t('selectDestination')} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="airport">Airport</SelectItem>
-                      <SelectItem value="convention-center">Convention Center</SelectItem>
-                      <SelectItem value="hotel">Main Hotel</SelectItem>
-                      <SelectItem value="stadium">Stadium</SelectItem>
-                      <SelectItem value="exhibition-hall">Exhibition Hall</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <TabsContent value="standard">
+                  <form onSubmit={handleSubmitRequest} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="pickup-location">
+                        <MapPin className="h-4 w-4 inline mr-2" />
+                        {t('pickupLocation')}
+                      </Label>
+                      <Select required>
+                        <SelectTrigger id="pickup-location">
+                          <SelectValue placeholder={t('selectPickupLocation')} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="main-gate">Main Gate</SelectItem>
+                          <SelectItem value="north-entrance">North Entrance</SelectItem>
+                          <SelectItem value="hotel-lobby">Hotel Lobby</SelectItem>
+                          <SelectItem value="stadium">Stadium Entrance</SelectItem>
+                          <SelectItem value="convention-center">Convention Center</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="destination">
+                        <MapPin className="h-4 w-4 inline mr-2" />
+                        {t('destination')}
+                      </Label>
+                      <Select required>
+                        <SelectTrigger id="destination">
+                          <SelectValue placeholder={t('selectDestination')} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="airport">Airport</SelectItem>
+                          <SelectItem value="convention-center">Convention Center</SelectItem>
+                          <SelectItem value="hotel">Main Hotel</SelectItem>
+                          <SelectItem value="stadium">Stadium</SelectItem>
+                          <SelectItem value="exhibition-hall">Exhibition Hall</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="date">
+                          <CalendarClock className="h-4 w-4 inline mr-2" />
+                          {t('date')}
+                        </Label>
+                        <Input type="date" id="date" required />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="time">
+                          <Clock className="h-4 w-4 inline mr-2" />
+                          {t('time')}
+                        </Label>
+                        <Input type="time" id="time" required />
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="passengers">
+                        <Users className="h-4 w-4 inline mr-2" />
+                        {t('numberOfPassengers')}
+                      </Label>
+                      <Select required>
+                        <SelectTrigger id="passengers">
+                          <SelectValue placeholder={t('selectNumberOfPassengers')} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">1</SelectItem>
+                          <SelectItem value="2">2</SelectItem>
+                          <SelectItem value="3">3</SelectItem>
+                          <SelectItem value="4">4</SelectItem>
+                          <SelectItem value="5+">5+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="special-instructions">{t('specialInstructions')}</Label>
+                      <Textarea id="special-instructions" placeholder={t('anySpecialRequirementsOrNotes')} />
+                    </div>
+                    
+                    <Button type="submit" className="w-full">{t('submitRequest')}</Button>
+                  </form>
+                </TabsContent>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="date">
-                      <CalendarClock className="h-4 w-4 inline mr-2" />
-                      {t('date')}
-                    </Label>
-                    <Input type="date" id="date" required />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="time">
-                      <Clock className="h-4 w-4 inline mr-2" />
-                      {t('time')}
-                    </Label>
-                    <Input type="time" id="time" required />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="passengers">
-                    <Users className="h-4 w-4 inline mr-2" />
-                    {t('numberOfPassengers')}
-                  </Label>
-                  <Select required>
-                    <SelectTrigger id="passengers">
-                      <SelectValue placeholder={t('selectNumberOfPassengers')} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1</SelectItem>
-                      <SelectItem value="2">2</SelectItem>
-                      <SelectItem value="3">3</SelectItem>
-                      <SelectItem value="4">4</SelectItem>
-                      <SelectItem value="5+">5+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="special-instructions">{t('specialInstructions')}</Label>
-                  <Textarea id="special-instructions" placeholder={t('anySpecialRequirementsOrNotes')} />
-                </div>
-                
-                <Button type="submit" className="w-full">{t('submitRequest')}</Button>
-              </form>
+                <TabsContent value="custom">
+                  <form onSubmit={handleSubmitRequest} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-pickup">
+                        <MapPin className="h-4 w-4 inline mr-2" />
+                        {t('pickupLocation')}
+                      </Label>
+                      <Select required>
+                        <SelectTrigger id="custom-pickup">
+                          <SelectValue placeholder={t('selectPickupLocation')} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="main-gate">Main Gate</SelectItem>
+                          <SelectItem value="north-entrance">North Entrance</SelectItem>
+                          <SelectItem value="hotel-lobby">Hotel Lobby</SelectItem>
+                          <SelectItem value="stadium">Stadium Entrance</SelectItem>
+                          <SelectItem value="convention-center">Convention Center</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-destination">
+                        <MapPin className="h-4 w-4 inline mr-2" />
+                        {t('destination')}
+                      </Label>
+                      <Input 
+                        id="custom-destination"
+                        placeholder={t('enterCustomDestination')}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-address">
+                        <MapPin className="h-4 w-4 inline mr-2" />
+                        {t('fullDestinationAddress')}
+                      </Label>
+                      <Textarea 
+                        id="custom-address"
+                        placeholder={t('enterFullAddress')}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="custom-date">
+                          <CalendarClock className="h-4 w-4 inline mr-2" />
+                          {t('date')}
+                        </Label>
+                        <Input type="date" id="custom-date" required />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="custom-time">
+                          <Clock className="h-4 w-4 inline mr-2" />
+                          {t('time')}
+                        </Label>
+                        <Input type="time" id="custom-time" required />
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-passengers">
+                        <Users className="h-4 w-4 inline mr-2" />
+                        {t('numberOfPassengers')}
+                      </Label>
+                      <Select required>
+                        <SelectTrigger id="custom-passengers">
+                          <SelectValue placeholder={t('selectNumberOfPassengers')} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">1</SelectItem>
+                          <SelectItem value="2">2</SelectItem>
+                          <SelectItem value="3">3</SelectItem>
+                          <SelectItem value="4">4</SelectItem>
+                          <SelectItem value="5+">5+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-instructions">{t('specialInstructions')}</Label>
+                      <Textarea id="custom-instructions" placeholder={t('anySpecialRequirementsOrNotes')} />
+                    </div>
+                    
+                    <Button type="submit" className="w-full">{t('submitRequest')}</Button>
+                  </form>
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
         ) : (
