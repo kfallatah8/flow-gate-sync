@@ -11,62 +11,56 @@ import { useForm } from 'react-hook-form';
 import { Clock, CalendarDays, MapPin, Users, Car, Check, Clock8, Route } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/context/LanguageContext';
-
 const AFCDashboard: React.FC = () => {
-  const { toast } = useToast();
-  const { t } = useLanguage();
-  
+  const {
+    toast
+  } = useToast();
+  const {
+    t
+  } = useLanguage();
   const form = useForm({
     defaultValues: {
       pickup: '',
       destination: '',
       passengers: '1',
       dateTime: '',
-      notes: '',
+      notes: ''
     }
   });
-
   const onSubmit = (data: any) => {
     console.log(data);
     toast({
       title: t('requestSubmitted'),
-      description: t('yourRideRequestHasBeenSubmittedSuccessfully'),
+      description: t('yourRideRequestHasBeenSubmittedSuccessfully')
     });
     form.reset();
   };
-  
-  const myRides = [
-    {
-      id: 'ride-1',
-      date: t('today'),
-      time: '2:30 PM',
-      destination: 'Okaz Stadium',
-      status: 'confirmed',
-      driver: 'Ahmed K.',
-      vehicle: 'Van #103'
-    },
-    {
-      id: 'ride-2',
-      date: t('tomorrow'),
-      time: '9:15 AM',
-      destination: 'KFS Stadium',
-      status: 'pending',
-      driver: t('pending'),
-      vehicle: 'TBD'
-    },
-    {
-      id: 'ride-3',
-      date: 'Apr 22, 2025',
-      time: '4:00 PM',
-      destination: 'Airport Terminal 2',
-      status: 'confirmed',
-      driver: 'Saeed M.',
-      vehicle: 'Car #87'
-    }
-  ];
-
-  return (
-    <DashboardLayout title={t('requestRide')} requiredRole="afc">
+  const myRides = [{
+    id: 'ride-1',
+    date: t('today'),
+    time: '2:30 PM',
+    destination: 'Okaz Stadium',
+    status: 'confirmed',
+    driver: 'Ahmed K.',
+    vehicle: 'Van #103'
+  }, {
+    id: 'ride-2',
+    date: t('tomorrow'),
+    time: '9:15 AM',
+    destination: 'KFS Stadium',
+    status: 'pending',
+    driver: t('pending'),
+    vehicle: 'TBD'
+  }, {
+    id: 'ride-3',
+    date: 'Apr 22, 2025',
+    time: '4:00 PM',
+    destination: 'Airport Terminal 2',
+    status: 'confirmed',
+    driver: 'Saeed M.',
+    vehicle: 'Car #87'
+  }];
+  return <DashboardLayout title={t('requestRide')} requiredRole="afc">
       <div className="mx-auto max-w-7xl space-y-6">
         <div className="grid gap-6 md:grid-cols-5">
           {/* Request Form Section - 3 columns on medium+ screens */}
@@ -83,7 +77,7 @@ const AFCDashboard: React.FC = () => {
                   <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="stadium">{t('matches')}</TabsTrigger>
                     <TabsTrigger value="airport">{t('airport')}</TabsTrigger>
-                    <TabsTrigger value="custom">{t('customLocation')}</TabsTrigger>
+                    <TabsTrigger value="custom" className="translate to arabic \n\n">{t('customLocation')}</TabsTrigger>
                   </TabsList>
                   
                   <TabsContent value="stadium" className="pt-4 space-y-4">
@@ -137,19 +131,13 @@ const AFCDashboard: React.FC = () => {
                         
                         <div className="space-y-2">
                           <Label htmlFor="datetime">{t('pickupLocation')} {t('date')} & {t('time')}</Label>
-                          <Input
-                            id="datetime"
-                            type="datetime-local"
-                          />
+                          <Input id="datetime" type="datetime-local" />
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="notes">{t('notes')}</Label>
-                        <Input
-                          id="notes"
-                          placeholder={t('anySpecialRequirementsOrNotes')}
-                        />
+                        <Input id="notes" placeholder={t('anySpecialRequirementsOrNotes')} />
                       </div>
                       
                       <Button type="submit" className="w-full">
@@ -207,19 +195,13 @@ const AFCDashboard: React.FC = () => {
                         
                         <div className="space-y-2">
                           <Label htmlFor="airport-datetime">{t('date')} & {t('time')}</Label>
-                          <Input
-                            id="airport-datetime"
-                            type="datetime-local"
-                          />
+                          <Input id="airport-datetime" type="datetime-local" />
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="airport-notes">{t('notes')}</Label>
-                        <Input
-                          id="airport-notes"
-                          placeholder={t('anySpecialRequirementsOrNotes')}
-                        />
+                        <Input id="airport-notes" placeholder={t('anySpecialRequirementsOrNotes')} />
                       </div>
                       
                       <Button type="submit" className="w-full">
@@ -248,10 +230,7 @@ const AFCDashboard: React.FC = () => {
                         
                         <div className="space-y-2">
                           <Label htmlFor="custom-destination">{t('destination')}</Label>
-                          <Input
-                            id="custom-destination"
-                            placeholder={t('enterCustomDestination')}
-                          />
+                          <Input id="custom-destination" placeholder={t('enterCustomDestination')} />
                         </div>
                       </div>
                       
@@ -274,27 +253,18 @@ const AFCDashboard: React.FC = () => {
                         
                         <div className="space-y-2">
                           <Label htmlFor="custom-datetime">{t('date')} & {t('time')}</Label>
-                          <Input
-                            id="custom-datetime"
-                            type="datetime-local"
-                          />
+                          <Input id="custom-datetime" type="datetime-local" />
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="custom-address">{t('fullDestinationAddress')}</Label>
-                        <Input
-                          id="custom-address"
-                          placeholder={t('enterFullAddress')}
-                        />
+                        <Input id="custom-address" placeholder={t('enterFullAddress')} />
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="custom-notes">{t('notes')}</Label>
-                        <Input
-                          id="custom-notes"
-                          placeholder={t('anySpecialRequirementsOrNotes')}
-                        />
+                        <Input id="custom-notes" placeholder={t('anySpecialRequirementsOrNotes')} />
                       </div>
                       
                       <Button type="submit" className="w-full">
@@ -316,8 +286,7 @@ const AFCDashboard: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {myRides.map((ride) => (
-                    <Card key={ride.id} className="bg-muted/50">
+                  {myRides.map(ride => <Card key={ride.id} className="bg-muted/50">
                       <CardContent className="p-4">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
@@ -347,25 +316,20 @@ const AFCDashboard: React.FC = () => {
                         </div>
                         
                         <div className="mt-3 pt-2 border-t border-border/30 flex items-center justify-between">
-                          <span className={`text-xs px-2 py-1 rounded-full ${
-                            ride.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
-                          }`}>
+                          <span className={`text-xs px-2 py-1 rounded-full ${ride.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
                             {ride.status === 'confirmed' ? t('completed') : t('pending')}
                           </span>
                           
                           <Button variant="ghost" size="sm" className="text-xs">{t('status')}</Button>
                         </div>
                       </CardContent>
-                    </Card>
-                  ))}
+                    </Card>)}
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </div>
-    </DashboardLayout>
-  );
+    </DashboardLayout>;
 };
-
 export default AFCDashboard;
