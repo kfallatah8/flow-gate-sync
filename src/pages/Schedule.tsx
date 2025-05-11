@@ -11,10 +11,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { MapPin, Clock, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Users, Bus, Car } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
+import { useTheme } from '@/context/ThemeContext';
 
 const Schedule: React.FC = () => {
   const { currentUser } = useAuth();
   const { t } = useLanguage();
+  const { theme } = useTheme();
   const role = currentUser?.role || 'afc';
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [month, setMonth] = useState<Date>(new Date());
@@ -149,13 +151,32 @@ const Schedule: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                month={month}
-                className="rounded-md border"
-              />
+              <div className="bg-card rounded-md">
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={setDate}
+                  month={month}
+                  className="pointer-events-auto"
+                  classNames={{
+                    month: "space-y-4",
+                    caption: "flex justify-center pt-1 relative items-center",
+                    caption_label: "text-sm font-medium",
+                    nav: "space-x-1 flex items-center",
+                    table: "w-full border-collapse space-y-1",
+                    head_row: "flex",
+                    head_cell: "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]",
+                    row: "flex w-full mt-2",
+                    cell: "h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+                    day: "h-9 w-9 p-0 font-normal aria-selected:opacity-100",
+                    day_selected: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
+                    day_today: "bg-accent text-accent-foreground",
+                    day_outside: "text-muted-foreground opacity-50",
+                    day_disabled: "text-muted-foreground opacity-50",
+                    day_hidden: "invisible",
+                  }}
+                />
+              </div>
               
               <div className="mt-6 space-y-4">
                 <div className="space-y-1">
