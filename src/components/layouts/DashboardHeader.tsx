@@ -24,7 +24,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title }) => {
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden">
               <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">{t('dashboard')}</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="p-0">

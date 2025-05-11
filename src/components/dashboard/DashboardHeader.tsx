@@ -31,12 +31,15 @@ const DashboardHeader: React.FC = () => {
           <Button variant="ghost" size="icon" className="relative">
             <Bell className="h-5 w-5" />
             <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full"></span>
+            <span className="sr-only">{t('notifications')}</span>
           </Button>
           <Button variant="ghost" size="icon">
             <MessageSquare className="h-5 w-5" />
+            <span className="sr-only">{t('messaging')}</span>
           </Button>
           <Button variant="ghost" size="icon" className="rounded-full">
             <User className="h-5 w-5" />
+            <span className="sr-only">{t('settings')}</span>
           </Button>
         </div>
       </div>

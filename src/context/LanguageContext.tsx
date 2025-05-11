@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'en' | 'ar' | 'ur';
@@ -72,6 +73,7 @@ export const translations = {
     
     // Settings
     accountSettings: 'Account',
+    notificationSettings: 'Notification Settings',
     appearance: 'Appearance',
     profileInformation: 'Profile Information',
     updateYourAccountInfo: 'Update your account details',
@@ -85,7 +87,6 @@ export const translations = {
     newPassword: 'New Password',
     confirmPassword: 'Confirm Password',
     updatePassword: 'Update Password',
-    notificationSettings: 'Notification Settings',
     manageYourNotificationPreferences: 'Choose what notifications you receive',
     rideAlerts: 'Ride Alerts',
     receiveAlertsForNewRideAssignments: 'Receive alerts for new ride assignments',
@@ -178,15 +179,22 @@ export const translations = {
     weeklyView: 'Weekly View',
     airport: 'Airport',
     matches: 'Matches',
+    pickupLocation: 'Pickup Location',
+    destination: 'Destination',
+    filterByDate: 'Filter by date',
+    applyFilter: 'Apply Filter',
+    clearFilter: 'Clear Filter',
+    noEventsFound: 'No events found',
   },
+  
   ar: {
     // Common
-    appName: 'فلوغيت سينك',
-    dashboard: 'لوحة المعلومات',
+    appName: 'فلوجيت سينك',
+    dashboard: 'لوحة التحكم',
     tasks: 'المهام',
     schedule: 'الجدول الزمني',
     guidelines: 'الإرشادات',
-    formSubmissions: 'نماذج مقدمة',
+    formSubmissions: 'تقديمات النماذج',
     teamManagement: 'إدارة الفريق',
     fleetManagement: 'إدارة الأسطول',
     logout: 'تسجيل الخروج',
@@ -196,11 +204,11 @@ export const translations = {
     messaging: 'المراسلات',
     
     // Form Submissions
-    recentSubmissions: 'النماذج الأخيرة',
-    id: 'المعرف',
+    recentSubmissions: 'التقديمات الحديثة',
+    id: 'رقم التعريف',
     type: 'النوع',
-    submittedBy: 'قدمت بواسطة',
-    timestamp: 'التاريخ والوقت',
+    submittedBy: 'قدم بواسطة',
+    timestamp: 'التوقيت',
     status: 'الحالة',
     verified: 'تم التحقق',
     pending: 'قيد الانتظار',
@@ -208,12 +216,12 @@ export const translations = {
     
     // Tasks
     dailyTasks: 'المهام اليومية',
-    due: 'الموعد',
-    assignedTo: 'مكلف إلى',
+    due: 'موعد التسليم',
+    assignedTo: 'مخصص لـ',
     completed: 'مكتمل',
     inProgress: 'قيد التنفيذ',
     morningVehicleInspection: 'فحص المركبة الصباحي',
-    gateSecurityCheck: 'التحقق من أمن البوابة',
+    gateSecurityCheck: 'فحص أمن البوابة',
     passengerCountReport: 'تقرير عدد الركاب',
     driverTeam: 'فريق السائقين',
     securityTeam: 'فريق الأمن',
@@ -228,14 +236,14 @@ export const translations = {
     offline: 'غير متصل',
     busy: 'مشغول',
     now: 'الآن',
-    ago: 'مضى',
+    ago: 'منذ',
     
     // Fleet Management
     fleetVehicles: 'مركبات الأسطول',
     addVehicle: 'إضافة مركبة',
     available: 'متاح',
     inUse: 'قيد الاستخدام',
-    maintenance: 'صيانة',
+    maintenance: 'تحت الصيانة',
     lastService: 'آخر صيانة',
     currentDriver: 'السائق الحالي',
     
@@ -243,44 +251,44 @@ export const translations = {
     vehicleOperation: 'تشغيل المركبة',
     passengerSafety: 'سلامة الركاب',
     emergencyProcedures: 'إجراءات الطوارئ',
-    communicationProtocol: 'بروتوكول الاتصالات',
+    communicationProtocol: 'بروتوكول الاتصال',
     
     // Settings
     accountSettings: 'الحساب',
+    notificationSettings: 'إعدادات الإشعارات',
     appearance: 'المظهر',
     profileInformation: 'معلومات الملف الشخصي',
     updateYourAccountInfo: 'تحديث تفاصيل حسابك',
     name: 'الاسم',
     email: 'البريد الإلكتروني',
-    bio: 'الس��رة الذاتية',
+    bio: 'نبذة',
     saveChanges: 'حفظ التغييرات',
     loginSettings: 'إعدادات تسجيل الدخول',
-    manageYourLoginInformation: 'تغيير كلمة المرور الخاصة بك',
+    manageYourLoginInformation: 'تغيير كلمة المرور',
     currentPassword: 'كلمة المرور الحالية',
     newPassword: 'كلمة المرور الجديدة',
     confirmPassword: 'تأكيد كلمة المرور',
     updatePassword: 'تحديث كلمة المرور',
-    notificationSettings: 'إعدادات الإشعارات',
     manageYourNotificationPreferences: 'اختر الإشعارات التي تتلقاها',
     rideAlerts: 'تنبيهات الرحلات',
-    receiveAlertsForNewRideAssignments: 'استلام تنبيهات للرحلات الجديدة',
+    receiveAlertsForNewRideAssignments: 'تلقي تنبيهات للرحلات الجديدة المخصصة',
     scheduleChanges: 'تغييرات الجدول',
-    notifyMeWhenMyScheduleChanges: 'أبلغني عند تغيير جدولي',
+    notifyMeWhenMyScheduleChanges: 'إبلاغي عند تغيير جدولي',
     teamMessages: 'رسائل الفريق',
-    receiveNotificationsForTeamMessages: 'استلام إشعارات لرسائل الفريق',
+    receiveNotificationsForTeamMessages: 'تلقي إشعارات لرسائل الفريق',
     emailNotifications: 'إشعارات البريد الإلكتروني',
-    receiveEmailSummariesDailyActivity: 'استلام ملخصات البريد الإلكتروني للنشاط اليومي',
+    receiveEmailSummariesDailyActivity: 'استلام ملخصات بالبريد الإلكتروني للنشاط اليومي',
     appearanceSettings: 'إعدادات المظهر',
-    customizeYourInterface: 'تخصيص مظهر فلوغيت',
-    darkMode: 'الوضع المظلم',
-    toggleDarkMode: 'تبديل الوضع المظلم',
-    compactView: 'العرض المدمج',
-    useCompactViewForDashboard: 'استخدم العرض المدمج للوحة المعلومات',
+    customizeYourInterface: 'تخصيص مظهر فلوجيت',
+    darkMode: 'الوضع الداكن',
+    toggleDarkMode: 'تفعيل أو إلغاء الوضع الداكن',
+    compactView: 'العرض المضغوط',
+    useCompactViewForDashboard: 'استخدام العرض المضغوط للوحة التحكم',
 
     // Messaging
-    searchContacts: 'البحث عن جهات الاتصال',
+    searchContacts: 'بحث في جهات الاتصال',
     all: 'الكل',
-    unread: 'غير مقروءة',
+    unread: 'غير مقروء',
     typeMessage: 'اكتب رسالة...',
     send: 'إرسال',
     selectConversation: 'اختر محادثة',
@@ -288,7 +296,7 @@ export const translations = {
     
     // Request Ride
     requestRide: 'طلب رحلة',
-    newRideRequest: 'طلب رحلة جديدة',
+    newRideRequest: 'طلب رحلة جديد',
     pickupLocation: 'موقع الاستلام',
     selectPickupLocation: 'اختر موقع الاستلام',
     destination: 'الوجهة',
@@ -299,11 +307,11 @@ export const translations = {
     selectNumberOfPassengers: 'اختر عدد الركاب',
     specialInstructions: 'تعليمات خاصة',
     anySpecialRequirementsOrNotes: 'أي متطلبات أو ملاحظات خاصة',
-    submitRequest: 'إرسال الطلب',
-    requestSubmitted: 'تم إرسال الطلب',
-    yourRideRequestHasBeenSubmittedSuccessfully: 'تم إرسال طلب الرحلة بنجاح',
-    youWillBeNotifiedWhenDriverAssigned: 'سيتم إخطارك عند تعيين سائق',
-    submitAnotherRequest: 'إرسال طلب آخر',
+    submitRequest: 'تقديم الطلب',
+    requestSubmitted: 'تم تقديم الطلب',
+    yourRideRequestHasBeenSubmittedSuccessfully: 'تم تقديم طلب الرحلة الخاص بك بنجاح',
+    youWillBeNotifiedWhenDriverAssigned: 'سيتم إشعارك عند تعيين سائق',
+    submitAnotherRequest: 'تقديم طلب آخر',
     
     // Forms
     arrivalForm: 'نموذج الوصول',
@@ -313,11 +321,11 @@ export const translations = {
     note: 'ملاحظة',
     notes: 'ملاحظات',
     addNotes: 'أضف أي ملاحظات أو مشاكل هنا',
-    photoEvidence: 'دليل الصورة',
+    photoEvidence: 'دليل صوري',
     takePhoto: 'التقاط صورة',
     uploadPhoto: 'تحميل',
-    capturePhoto: 'التقاط الصورة',
-    submit: 'إرسال',
+    capturePhoto: 'التقاط صورة',
+    submit: 'تقديم',
     cancel: 'إلغاء',
     ok: 'موافق',
     issue: 'مشكلة',
@@ -325,8 +333,8 @@ export const translations = {
     completedToday: 'اكتمل اليوم',
     
     // Ride status
-    scheduled: 'مجدولة',
-    cancelled: 'ملغاة',
+    scheduled: 'مجدول',
+    cancelled: 'ملغي',
     unknown: 'غير معروف',
     myRides: 'رحلاتي',
     passengers: 'الركاب',
@@ -335,30 +343,37 @@ export const translations = {
     
     // New translations
     pageNotFound: 'الصفحة غير موجودة',
-    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. قد تكون انتقلت أو غير موجودة.',
-    backToDashboard: 'العودة إلى لوحة المعلومات',
+    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو أنها غير موجودة.',
+    backToDashboard: 'العودة إلى لوحة التحكم',
     calendar: 'التقويم',
     legend: 'المفتاح',
     matchDay: 'يوم المباراة',
     transfer: 'نقل',
     training: 'تدريب',
-    media: 'الإعلام',
+    media: 'وسائل إعلام',
     filterView: 'تصفية العرض',
     filterEvents: 'تصفية الأحداث',
     allEvents: 'جميع الأحداث',
     matchDays: 'أيام المباريات',
     airportTransfers: 'نقل المطار',
-    trainingSessions: 'جلسات التدريب',
+    trainingSessions: 'جلسات تدريبية',
     eventSchedule: 'جدول الأحداث',
-    weeklyView: 'العرض الأسبوعي',
+    weeklyView: 'عرض أسبوعي',
     airport: 'المطار',
     matches: 'المباريات',
+    pickupLocation: 'موقع الاستلام',
+    destination: 'الوجهة',
+    filterByDate: 'تصفية حسب التاريخ',
+    applyFilter: 'تطبيق التصفية',
+    clearFilter: 'مسح التصفية',
+    noEventsFound: 'لم يتم العثور على أحداث',
   },
+  
   ur: {
     // Common
     appName: 'فلو گیٹ سنک',
     dashboard: 'ڈیش بورڈ',
-    tasks: 'کام',
+    tasks: 'ٹاسک',
     schedule: 'شیڈول',
     guidelines: 'ہدایات',
     formSubmissions: 'فارم جمع کرائیں',
@@ -368,13 +383,13 @@ export const translations = {
     search: 'تلاش کریں',
     notifications: 'نوٹیفکیشنز',
     settings: 'ترتیبات',
-    messaging: 'پیغام رسانی',
+    messaging: 'پیغامات',
     
     // Form Submissions
-    recentSubmissions: 'حالیہ جمع کرائے',
+    recentSubmissions: 'حالیہ جمع کرائے گئے فارم',
     id: 'آئی ڈی',
     type: 'قسم',
-    submittedBy: 'جمع کرایا',
+    submittedBy: 'جمع کرانے والا',
     timestamp: 'وقت',
     status: 'حالت',
     verified: 'تصدیق شدہ',
@@ -383,22 +398,22 @@ export const translations = {
     
     // Tasks
     dailyTasks: 'روزانہ کے کام',
-    due: 'مقررہ',
-    assignedTo: 'تفویض کردہ',
+    due: 'مقررہ تاریخ',
+    assignedTo: 'تفویض شدہ',
     completed: 'مکمل',
     inProgress: 'جاری ہے',
-    morningVehicleInspection: 'صبح کی گاڑی کی جانچ',
-    gateSecurityCheck: 'گیٹ سکیورٹی چیک',
+    morningVehicleInspection: 'صبح کی گاڑی انسپکشن',
+    gateSecurityCheck: 'گیٹ سیکیورٹی چیک',
     passengerCountReport: 'مسافروں کی تعداد کی رپورٹ',
     driverTeam: 'ڈرائیور ٹیم',
-    securityTeam: 'سکیورٹی ٹیم',
-    afcTeam: 'اے ایف سی ٹیم',
+    securityTeam: 'سیکیورٹی ٹیم',
+    afcTeam: 'AFC ٹیم',
     
     // Team Management
-    teamMembers: 'ٹیم کے ارکان',
-    addMember: 'رکن شامل کریں',
+    teamMembers: 'ٹیم ممبرز',
+    addMember: 'ممبر شامل کریں',
     role: 'کردار',
-    lastActive: 'آخری سرگرمی',
+    lastActive: 'آخری فعالیت',
     active: 'فعال',
     offline: 'آف لائن',
     busy: 'مصروف',
@@ -406,25 +421,26 @@ export const translations = {
     ago: 'پہلے',
     
     // Fleet Management
-    fleetVehicles: 'فلیٹ گاڑیاں',
+    fleetVehicles: 'فلیٹ کی گاڑیاں',
     addVehicle: 'گاڑی شامل کریں',
     available: 'دستیاب',
     inUse: 'استعمال میں',
-    maintenance: 'مرمت',
+    maintenance: 'دیکھ بھال',
     lastService: 'آخری سروس',
     currentDriver: 'موجودہ ڈرائیور',
     
     // Guidelines
-    vehicleOperation: 'گاڑی چلانے کے اصول',
-    passengerSafety: 'مسافر کی حفاظت',
+    vehicleOperation: 'گاڑی کی آپریشن',
+    passengerSafety: 'مسافروں کی حفاظت',
     emergencyProcedures: 'ہنگامی طریقہ کار',
-    communicationProtocol: 'مواصلات کا پروٹوکول',
+    communicationProtocol: 'مواصلاتی پروٹوکول',
     
     // Settings
     accountSettings: 'اکاؤنٹ',
+    notificationSettings: 'نوٹیفکیشن کی ترتیبات',
     appearance: 'ظاہری شکل',
     profileInformation: 'پروفائل کی معلومات',
-    updateYourAccountInfo: 'اپنے اکاؤنٹ کی تفصیلات اپ ڈیٹ کریں',
+    updateYourAccountInfo: 'اپنے اکاؤنٹ کی تفصیلات کو اپ ڈیٹ کریں',
     name: 'نام',
     email: 'ای میل',
     bio: 'بایو',
@@ -435,37 +451,36 @@ export const translations = {
     newPassword: 'نیا پاس ورڈ',
     confirmPassword: 'پاس ورڈ کی تصدیق کریں',
     updatePassword: 'پاس ورڈ اپ ڈیٹ کریں',
-    notificationSettings: 'نوٹیفکیشن کی ترتیبات',
-    manageYourNotificationPreferences: 'اپنی نوٹیفکیشن ترجیحات کا انتظام کریں',
-    rideAlerts: 'سواری الرٹس',
-    receiveAlertsForNewRideAssignments: 'نئی سواری اسaignمنٹس کے لئے الرٹس حاصل کریں',
+    manageYourNotificationPreferences: 'وہ نوٹیفکیشنز منتخب کریں جو آپ کو موصول ہوں',
+    rideAlerts: 'رائیڈ الرٹس',
+    receiveAlertsForNewRideAssignments: 'نئی رائیڈ تفویض کے لیے الرٹس وصول کریں',
     scheduleChanges: 'شیڈول میں تبدیلیاں',
-    notifyMeWhenMyScheduleChanges: 'مجھے مطلع کریں جب میرا شیڈول تبدیل ہو',
+    notifyMeWhenMyScheduleChanges: 'میرے شیڈول میں تبدیلیوں کے بارے میں مجھے مطلع کریں',
     teamMessages: 'ٹیم کے پیغامات',
-    receiveNotificationsForTeamMessages: 'ٹیم کے پیغامات کے لئے نوٹیفکیشنز حاصل کریں',
+    receiveNotificationsForTeamMessages: 'ٹیم کے پیغامات کے لیے نوٹیفکیشنز حاصل کریں',
     emailNotifications: 'ای میل نوٹیفکیشنز',
-    receiveEmailSummariesDailyActivity: 'روزانہ کی سرگرمی کے ای میل خلاصے حاصل کریں',
+    receiveEmailSummariesDailyActivity: 'روزانہ کی سرگرمیوں کے خلاصے ای میل کے ذریعے وصول کریں',
     appearanceSettings: 'ظاہری شکل کی ترتیبات',
-    customizeYourInterface: 'فلو گیٹ کی ظاہری شکل تبدیل کریں',
+    customizeYourInterface: 'فلو گیٹ کی شکل کو اپنی پسند کے مطابق بنائیں',
     darkMode: 'ڈارک موڈ',
-    toggleDarkMode: 'ڈارک موڈ آن یا آف کریں',
-    compactView: 'کمپیکٹ ویو',
-    useCompactViewForDashboard: 'ڈیش بورڈ کے لئے کمپیکٹ ویو استعمال کریں',
+    toggleDarkMode: 'ڈارک موڈ کو آن یا آف کریں',
+    compactView: 'کومپیکٹ ویو',
+    useCompactViewForDashboard: 'ڈیش بورڈ کے لیے کومپیکٹ ویو استعمال کریں',
 
     // Messaging
-    searchContacts: 'روابط تلاش کریں',
+    searchContacts: 'رابطے تلاش کریں',
     all: 'تمام',
-    unread: 'غیر خواندہ',
-    typeMessage: 'پیغام لکھیں...',
+    unread: 'نہیں پڑھا گیا',
+    typeMessage: 'پیغام ٹائپ کریں...',
     send: 'بھیجیں',
-    selectConversation: 'ایک گفتگو منتخب کریں',
-    chooseContactToStartMessaging: 'پیغام رسانی شروع کرنے کے لئے ایک رابطہ منتخب کریں',
+    selectConversation: 'گفتگو منتخب کریں',
+    chooseContactToStartMessaging: 'پیغام رسانی شروع کرنے کے لیے رابطہ منتخب کریں',
     
     // Request Ride
-    requestRide: 'سواری کی درخواست',
-    newRideRequest: 'نئی سواری کی درخواست',
-    pickupLocation: 'پک اپ کی جگہ',
-    selectPickupLocation: 'پک اپ کی جگہ منتخب کریں',
+    requestRide: 'رائیڈ کی درخواست',
+    newRideRequest: 'نئی رائیڈ کی درخواست',
+    pickupLocation: 'پک اپ لوکیشن',
+    selectPickupLocation: 'پک اپ لوکیشن منتخب کریں',
     destination: 'منزل',
     selectDestination: 'منزل منتخب کریں',
     date: 'تاریخ',
@@ -473,12 +488,12 @@ export const translations = {
     numberOfPassengers: 'مسافروں کی تعداد',
     selectNumberOfPassengers: 'مسافروں کی تعداد منتخب کریں',
     specialInstructions: 'خصوصی ہدایات',
-    anySpecialRequirementsOrNotes: 'کوئی خصوصی ضروریات یا نوٹس',
+    anySpecialRequirementsOrNotes: 'کوئی خاص ضرورت یا نوٹس',
     submitRequest: 'درخواست جمع کریں',
-    requestSubmitted: 'درخواست جمع کرائی گئی',
-    yourRideRequestHasBeenSubmittedSuccessfully: 'آپ کی سواری کی درخواست کامیابی سے جمع کرا دی گئی ہے',
-    youWillBeNotifiedWhenDriverAssigned: 'ڈرائیور تعینات کرنے پر آپ کو مطلع کیا جائے گا',
-    submitAnotherRequest: 'ایک اور درخواست جمع کریں',
+    requestSubmitted: 'درخواست جمع کرا دی گئی',
+    yourRideRequestHasBeenSubmittedSuccessfully: 'آپ کی رائیڈ کی درخواست کامیابی سے جمع کرا دی گئی ہے',
+    youWillBeNotifiedWhenDriverAssigned: 'ڈرائیور کی تعیناتی ہوتے ہی آپ کو مطلع کیا جائے گا',
+    submitAnotherRequest: 'دوسری درخواست جمع کریں',
     
     // Forms
     arrivalForm: 'آمد کا فارم',
@@ -491,62 +506,62 @@ export const translations = {
     photoEvidence: 'تصویری ثبوت',
     takePhoto: 'تصویر لیں',
     uploadPhoto: 'اپ لوڈ کریں',
-    capturePhoto: 'تصویر کیپچر کریں',
-    submit: 'جمع کرائیں',
+    capturePhoto: 'تصویر کھینچیں',
+    submit: 'جمع کریں',
     cancel: 'منسوخ کریں',
     ok: 'ٹھیک ہے',
     issue: 'مسئلہ',
     critical: 'نازک',
-    completedToday: 'آج مکمل ہوا',
+    completedToday: 'آج مکمل',
     
     // Ride status
-    scheduled: 'شیڈیول',
-    cancelled: 'منسوخ',
+    scheduled: 'شیڈول کردہ',
+    cancelled: 'منسوخ شدہ',
     unknown: 'نامعلوم',
-    myRides: 'میری سواریاں',
+    myRides: 'میری رائیڈز',
     passengers: 'مسافر',
     today: 'آج',
     yesterday: 'کل',
     
     // New translations
     pageNotFound: 'صفحہ نہیں ملا',
-    pageNotFoundMessage: 'معذرت، ہم وہ صفحہ نہیں ڈھونڈ سکے جسے آپ تلاش کر رہے ہیں۔ یہ منتقل ہو سکتا ہے یا موجود نہیں ہے۔',
+    pageNotFoundMessage: 'معذرت، آپ جس صفحے کی تلاش کر رہے ہیں وہ ہمیں نہیں مل سکا۔ ہو سکتا ہے کہ یہ منتقل کر دیا گیا ہو یا موجود نہ ہو۔',
     backToDashboard: 'ڈیش بورڈ پر واپس جائیں',
     calendar: 'کیلنڈر',
     legend: 'علامات کی تشریح',
     matchDay: 'میچ کا دن',
     transfer: 'منتقلی',
-    training: 'تربیت',
+    training: 'ٹریننگ',
     media: 'میڈیا',
     filterView: 'فلٹر ویو',
     filterEvents: 'تقریبات فلٹر کریں',
     allEvents: 'تمام تقریبات',
-    matchDays: 'میچز کے دن',
+    matchDays: 'میچ کے دن',
     airportTransfers: 'ہوائی اڈے کی منتقلی',
-    trainingSessions: 'تربیتی سیشنز',
-    eventSchedule: 'تقریبات کا شیڈول',
-    weeklyView: 'ہفتہ وار نظارہ',
+    trainingSessions: 'ٹریننگ سیشنز',
+    eventSchedule: 'تقریب کا شیڈول',
+    weeklyView: 'ہفتہ وار ویو',
     airport: 'ہوائی اڈہ',
     matches: 'میچز',
+    pickupLocation: 'پک اپ لوکیشن',
+    destination: 'منزل',
+    filterByDate: 'تاریخ سے فلٹر کریں',
+    applyFilter: 'فلٹر لگائیں',
+    clearFilter: 'فلٹر صاف کریں',
+    noEventsFound: 'کوئی تقریب نہیں ملی',
   }
 };
 
+// Create context structure
 interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
+  setLanguage: (language: Language) => void;
   t: (key: string) => string;
 }
 
-const defaultContext: LanguageContextType = {
-  language: 'en',
-  setLanguage: () => {},
-  t: () => '',
-};
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const LanguageContext = createContext<LanguageContextType>(defaultContext);
-
-export const useLanguage = () => useContext(LanguageContext);
-
+// Create provider component
 interface LanguageProviderProps {
   children: ReactNode;
 }
@@ -554,17 +569,27 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  // Translation function
   const t = (key: string): string => {
-    // @ts-ignore - We know the key might not exist
-    return translations[language][key] || key;
+    const translation = translations[language][key as keyof typeof translations[typeof language]];
+    if (!translation) {
+      console.warn(`Translation key not found: ${key}`);
+      return key;
+    }
+    return translation;
   };
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div dir={language === 'ar' ? 'rtl' : 'ltr'}>
-        {children}
-      </div>
+      {children}
     </LanguageContext.Provider>
   );
+};
+
+// Create custom hook
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
 };
