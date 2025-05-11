@@ -11,19 +11,23 @@ const Guidelines: React.FC = () => {
   const guidelines = [
     {
       titleKey: "vehicleOperation",
-      content: "Always perform pre-trip inspections. Follow speed limits and traffic rules. Report any vehicle issues immediately."
+      contentKey: "vehicleOperationContent",
+      defaultContent: "Always perform pre-trip inspections. Follow speed limits and traffic rules. Report any vehicle issues immediately."
     },
     {
       titleKey: "passengerSafety",
-      content: "Ensure all passengers are properly seated. Follow designated pickup and drop-off points. Assist passengers when needed."
+      contentKey: "passengerSafetyContent",
+      defaultContent: "Ensure all passengers are properly seated. Follow designated pickup and drop-off points. Assist passengers when needed."
     },
     {
       titleKey: "emergencyProcedures",
-      content: "Keep emergency contact numbers handy. Know evacuation procedures. Report all incidents promptly."
+      contentKey: "emergencyProceduresContent",
+      defaultContent: "Keep emergency contact numbers handy. Know evacuation procedures. Report all incidents promptly."
     },
     {
       titleKey: "communicationProtocol",
-      content: "Maintain professional communication. Use designated channels for updates. Keep supervisors informed of status."
+      contentKey: "communicationProtocolContent",
+      defaultContent: "Maintain professional communication. Use designated channels for updates. Keep supervisors informed of status."
     },
   ];
 
@@ -38,7 +42,9 @@ const Guidelines: React.FC = () => {
                   <CardTitle>{t(guideline.titleKey)}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{guideline.content}</p>
+                  <p className="text-muted-foreground">
+                    {t(guideline.contentKey) || guideline.defaultContent}
+                  </p>
                 </CardContent>
               </Card>
             ))}

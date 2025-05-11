@@ -30,7 +30,7 @@ const FormSubmissions: React.FC = () => {
   const submissions: Submission[] = [
     {
       id: 1,
-      type: "Arrival Check",
+      type: t('arrivalForm'),
       submittedBy: "John Driver",
       timestamp: "2025-04-19 08:30 AM",
       status: "verified",
@@ -39,7 +39,7 @@ const FormSubmissions: React.FC = () => {
     },
     {
       id: 2,
-      type: "Departure Check",
+      type: t('departureForm'),
       submittedBy: "Sarah Driver",
       timestamp: "2025-04-19 05:45 PM",
       status: "pending",
@@ -57,8 +57,8 @@ const FormSubmissions: React.FC = () => {
       setViewPhoto(photo);
     } else {
       toast({
-        title: "No Photo Available",
-        description: "This submission does not have an attached photo.",
+        title: t('note'),
+        description: t('photoEvidence'),
         variant: "destructive"
       });
     }
@@ -128,7 +128,7 @@ const FormSubmissions: React.FC = () => {
             {viewPhoto && (
               <img 
                 src={viewPhoto} 
-                alt="Submission Photo" 
+                alt={t('photoEvidence')} 
                 className="max-w-full max-h-[60vh] object-contain"
               />
             )}

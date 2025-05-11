@@ -23,35 +23,35 @@ const TeamManagement: React.FC = () => {
     {
       id: '1',
       name: 'John Doe',
-      role: t('role'),
+      role: t('driverTeam'),
       status: 'active',
       lastActive: t('now')
     },
     {
       id: '2',
       name: 'Jane Smith',
-      role: 'AFC',
+      role: t('afcTeam'),
       status: 'busy',
       lastActive: '5m ' + t('ago')
     },
     {
       id: '3',
       name: 'Mike Johnson',
-      role: t('role'),
+      role: t('securityTeam'),
       status: 'offline',
       lastActive: '1h ' + t('ago')
     },
     {
       id: '4',
       name: 'Sara Wilson',
-      role: t('role'),
+      role: t('driverTeam'),
       status: 'active',
       lastActive: '2m ' + t('ago')
     },
     {
       id: '5',
       name: 'Alex Rahman',
-      role: t('role'),
+      role: t('securityTeam'),
       status: 'offline',
       lastActive: '3h ' + t('ago')
     },

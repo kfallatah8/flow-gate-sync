@@ -13,7 +13,7 @@ const DashboardHeader: React.FC = () => {
       <div className="flex h-16 items-center px-4 sm:px-6">
         <div className="flex items-center gap-2 lg:hidden">
           {/* Mobile logo */}
-          <span className="font-bold text-xl text-primary">FG</span>
+          <span className="font-bold text-xl text-primary">{t('appName').substring(0, 2)}</span>
         </div>
         
         {/* Search bar */}

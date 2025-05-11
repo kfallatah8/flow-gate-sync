@@ -67,9 +67,13 @@ export const translations = {
     
     // Guidelines
     vehicleOperation: 'Vehicle Operation',
+    vehicleOperationContent: 'Always perform pre-trip inspections. Follow speed limits and traffic rules. Report any vehicle issues immediately.',
     passengerSafety: 'Passenger Safety',
+    passengerSafetyContent: 'Ensure all passengers are properly seated. Follow designated pickup and drop-off points. Assist passengers when needed.',
     emergencyProcedures: 'Emergency Procedures',
+    emergencyProceduresContent: 'Keep emergency contact numbers handy. Know evacuation procedures. Report all incidents promptly.',
     communicationProtocol: 'Communication Protocol',
+    communicationProtocolContent: 'Maintain professional communication. Use designated channels for updates. Keep supervisors informed of status.',
     
     // Settings
     accountSettings: 'Account',
@@ -247,9 +251,13 @@ export const translations = {
     
     // Guidelines
     vehicleOperation: 'تشغيل المركبة',
+    vehicleOperationContent: 'قم دائمًا بإجراء فحوصات ما قبل الرحلة. اتبع حدود السرعة وقواعد المرور. أبلغ عن أي مشاكل في المركبة على الفور.',
     passengerSafety: 'سلامة الركاب',
+    passengerSafetyContent: 'تأكد من جلوس جميع الركاب بشكل صحيح. اتبع نقاط الصعود والنزول المحددة. ساعد الركاب عند الحاجة.',
     emergencyProcedures: 'إجراءات الطوارئ',
+    emergencyProceduresContent: 'احتفظ بأرقام الاتصال في حالات الطوارئ في متناول اليد. اعرف إجراءات الإخلاء. أبلغ عن جميع الحوادث على الفور.',
     communicationProtocol: 'بروتوكول الاتصال',
+    communicationProtocolContent: 'حافظ على الاتصال المهني. استخدم القنوات المخصصة للتحديثات. أبقِ المشرفين على علم بالحالة.',
     
     // Settings
     accountSettings: 'الحساب',
@@ -427,9 +435,13 @@ export const translations = {
     
     // Guidelines
     vehicleOperation: 'گاڑی کی آپریشن',
+    vehicleOperationContent: 'ہمیشہ سفر سے پہلے انسپکشن کریں۔ رفتار کی حدود اور ٹریفک کے قوانین پر عمل کریں۔ گاڑی کے کسی بھی مسئلے کی فوراً اطلاع دیں۔',
     passengerSafety: 'مسافروں کی حفاظت',
+    passengerSafetyContent: 'یقینی بنائیں کہ تمام مسافر صحیح طریقے سے بیٹھے ہوں۔ مقررہ پک اپ اور ڈراپ آف پوائنٹس پر عمل کریں۔ ضرورت پڑنے پر مسافروں کی مدد کریں۔',
     emergencyProcedures: 'ہنگامی طریقہ کار',
+    emergencyProceduresContent: 'ایمرجنسی رابطہ نمبر اپنے پاس رکھیں۔ انخلاء کے طریقہ کار کو جانیں۔ تمام واقعات کی فوری اطلاع دیں۔',
     communicationProtocol: 'مواصلاتی پروٹوکول',
+    communicationProtocolContent: 'پیشہ ورانہ مواصلات برقرار رکھیں۔ اپ ڈیٹس کے لیے مقررہ چینلز استعمال کریں۔ سپروائزرز کو حالات سے آگاہ رکھیں۔',
     
     // Settings
     accountSettings: 'اکاؤنٹ',

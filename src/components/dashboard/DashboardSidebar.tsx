@@ -5,6 +5,7 @@ import { Activity, Calendar, Clock, FileText, Gauge, Home, LayoutGrid,
          MapPin, Settings, Truck, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface SidebarItemProps {
   icon: React.ElementType;
@@ -31,6 +32,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon: Icon, label, active, hr
 };
 
 const DashboardSidebar: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="flex flex-col h-full border-r border-border/40">
       {/* Logo header */}
@@ -39,24 +42,24 @@ const DashboardSidebar: React.FC = () => {
           <div className="rounded-md bg-primary p-1">
             <Activity className="h-6 w-6 text-primary-foreground" strokeWidth={2.5} />
           </div>
-          <span className="font-bold text-xl">FlowGate</span>
+          <span className="font-bold text-xl">{t('appName')}</span>
         </Link>
       </div>
       
       {/* Main navigation */}
       <div className="px-3 py-4 flex-1 overflow-auto">
         <div className="space-y-1">
-          <SidebarItem icon={Home} label="Home" href="/" active />
-          <SidebarItem icon={LayoutGrid} label="Projects" href="/projects" />
-          <SidebarItem icon={Truck} label="Vehicles" href="/vehicles" />
-          <SidebarItem icon={MapPin} label="Gates" href="/gates" />
-          <SidebarItem icon={Users} label="Teams" href="/teams" />
-          <SidebarItem icon={Calendar} label="Schedule" href="/schedule" />
+          <SidebarItem icon={Home} label={t('dashboard')} href="/" active />
+          <SidebarItem icon={LayoutGrid} label={t('teamManagement')} href="/projects" />
+          <SidebarItem icon={Truck} label={t('fleetManagement')} href="/vehicles" />
+          <SidebarItem icon={MapPin} label={t('location')} href="/gates" />
+          <SidebarItem icon={Users} label={t('teamMembers')} href="/teams" />
+          <SidebarItem icon={Calendar} label={t('schedule')} href="/schedule" />
           <SidebarItem icon={Gauge} label="Analytics" href="/analytics" />
         </div>
         
         <div className="mt-8 pt-4 border-t border-border/40">
-          <h3 className="px-3 text-sm font-medium text-muted-foreground mb-2">Recent Projects</h3>
+          <h3 className="px-3 text-sm font-medium text-muted-foreground mb-2">{t('recentSubmissions')}</h3>
           <div className="space-y-1">
             <SidebarItem icon={FileText} label="Sports Tournament" href="/projects/1" />
             <SidebarItem icon={FileText} label="Concert Series" href="/projects/2" />
@@ -68,8 +71,8 @@ const DashboardSidebar: React.FC = () => {
       {/* Footer */}
       <div className="mt-auto p-3 border-t border-border/40">
         <div className="flex items-center gap-3">
-          <SidebarItem icon={Clock} label="Recent" href="/recent" />
-          <SidebarItem icon={Settings} label="Settings" href="/settings" />
+          <SidebarItem icon={Clock} label={t('lastActive')} href="/recent" />
+          <SidebarItem icon={Settings} label={t('settings')} href="/settings" />
         </div>
       </div>
     </div>
