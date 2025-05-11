@@ -11,9 +11,12 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { useForm } from 'react-hook-form';
 import { Clock, CalendarDays, MapPin, Users, Car, Check, Clock8, Route } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { useLanguage } from '@/context/LanguageContext';
 
 const AFCDashboard: React.FC = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
+  
   const form = useForm({
     defaultValues: {
       pickup: '',
@@ -27,8 +30,8 @@ const AFCDashboard: React.FC = () => {
   const onSubmit = (data: any) => {
     console.log(data);
     toast({
-      title: 'Ride Requested',
-      description: 'Your ride has been successfully requested.',
+      title: t('requestSubmitted'),
+      description: t('yourRideRequestHasBeenSubmittedSuccessfully'),
     });
     form.reset();
   };
@@ -36,7 +39,7 @@ const AFCDashboard: React.FC = () => {
   const myRides = [
     {
       id: 'ride-1',
-      date: 'Today',
+      date: t('today'),
       time: '2:30 PM',
       destination: 'Okaz Stadium',
       status: 'confirmed',
@@ -45,11 +48,11 @@ const AFCDashboard: React.FC = () => {
     },
     {
       id: 'ride-2',
-      date: 'Tomorrow',
+      date: t('tomorrow'),
       time: '9:15 AM',
       destination: 'KFS Stadium',
       status: 'pending',
-      driver: 'Pending',
+      driver: t('pending'),
       vehicle: 'TBD'
     },
     {
@@ -64,48 +67,48 @@ const AFCDashboard: React.FC = () => {
   ];
 
   return (
-    <DashboardLayout title="AFC Client Dashboard" requiredRole="afc">
+    <DashboardLayout title={t('requestRide')} requiredRole="afc">
       <div className="mx-auto max-w-7xl space-y-6">
         <div className="grid gap-6 md:grid-cols-5">
           {/* Request Form Section - 3 columns on medium+ screens */}
           <div className="md:col-span-3">
             <Card className="h-full">
               <CardHeader>
-                <CardTitle>Request Ride</CardTitle>
+                <CardTitle>{t('requestRide')}</CardTitle>
                 <CardDescription>
-                  Fill out the form below to request transportation
+                  {t('newRideRequest')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="stadium" className="w-full">
                   <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="stadium">Stadium</TabsTrigger>
-                    <TabsTrigger value="airport">Airport</TabsTrigger>
+                    <TabsTrigger value="stadium">{t('matches')}</TabsTrigger>
+                    <TabsTrigger value="airport">{t('airport')}</TabsTrigger>
                   </TabsList>
                   
                   <TabsContent value="stadium" className="pt-4 space-y-4">
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="pickup">Pickup Location</Label>
+                          <Label htmlFor="pickup">{t('pickupLocation')}</Label>
                           <Select defaultValue="hotel">
                             <SelectTrigger id="pickup">
-                              <SelectValue placeholder="Select location" />
+                              <SelectValue placeholder={t('selectPickupLocation')} />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="hotel">Team Hotel</SelectItem>
-                              <SelectItem value="training">Training Facility</SelectItem>
-                              <SelectItem value="media">Media Center</SelectItem>
-                              <SelectItem value="custom">Custom Location</SelectItem>
+                              <SelectItem value="hotel">{t('teamManagement')} Hotel</SelectItem>
+                              <SelectItem value="training">{t('training')} Facility</SelectItem>
+                              <SelectItem value="media">{t('media')} Center</SelectItem>
+                              <SelectItem value="custom">{t('location')}</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         
                         <div className="space-y-2">
-                          <Label htmlFor="destination">Stadium</Label>
+                          <Label htmlFor="destination">{t('destination')}</Label>
                           <Select defaultValue="okaz">
                             <SelectTrigger id="destination">
-                              <SelectValue placeholder="Select destination" />
+                              <SelectValue placeholder={t('selectDestination')} />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectItem value="okaz">Okaz Stadium</SelectItem>
@@ -117,23 +120,23 @@ const AFCDashboard: React.FC = () => {
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="passengers">Number of Passengers</Label>
+                          <Label htmlFor="passengers">{t('numberOfPassengers')}</Label>
                           <Select defaultValue="1">
                             <SelectTrigger id="passengers">
-                              <SelectValue placeholder="Select number" />
+                              <SelectValue placeholder={t('selectNumberOfPassengers')} />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="1">1 Passenger</SelectItem>
-                              <SelectItem value="2">2 Passengers</SelectItem>
-                              <SelectItem value="3">3 Passengers</SelectItem>
-                              <SelectItem value="4">4+ Passengers</SelectItem>
-                              <SelectItem value="team">Full Team</SelectItem>
+                              <SelectItem value="1">1 {t('passengers')}</SelectItem>
+                              <SelectItem value="2">2 {t('passengers')}</SelectItem>
+                              <SelectItem value="3">3 {t('passengers')}</SelectItem>
+                              <SelectItem value="4">4+ {t('passengers')}</SelectItem>
+                              <SelectItem value="team">{t('teamManagement')}</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         
                         <div className="space-y-2">
-                          <Label htmlFor="datetime">Pickup Date & Time</Label>
+                          <Label htmlFor="datetime">{t('pickupLocation')} {t('date')} & {t('time')}</Label>
                           <Input
                             id="datetime"
                             type="datetime-local"
@@ -142,15 +145,15 @@ const AFCDashboard: React.FC = () => {
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="notes">Additional Notes</Label>
+                        <Label htmlFor="notes">{t('notes')}</Label>
                         <Input
                           id="notes"
-                          placeholder="Any special requirements"
+                          placeholder={t('anySpecialRequirementsOrNotes')}
                         />
                       </div>
                       
                       <Button type="submit" className="w-full">
-                        Request Ride
+                        {t('requestRide')}
                       </Button>
                     </form>
                   </TabsContent>
@@ -159,14 +162,14 @@ const AFCDashboard: React.FC = () => {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="airport-type">Ride Type</Label>
+                          <Label htmlFor="airport-type">{t('type')}</Label>
                           <Select defaultValue="arrival">
                             <SelectTrigger id="airport-type">
-                              <SelectValue placeholder="Select type" />
+                              <SelectValue placeholder={t('selectDestination')} />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="arrival">Airport Pickup</SelectItem>
-                              <SelectItem value="departure">Airport Drop-off</SelectItem>
+                              <SelectItem value="arrival">{t('airport')} {t('pickupLocation')}</SelectItem>
+                              <SelectItem value="departure">{t('airport')} Drop-off</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
@@ -187,23 +190,23 @@ const AFCDashboard: React.FC = () => {
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="airport-passengers">Number of Passengers</Label>
+                          <Label htmlFor="airport-passengers">{t('numberOfPassengers')}</Label>
                           <Select defaultValue="1">
                             <SelectTrigger id="airport-passengers">
-                              <SelectValue placeholder="Select number" />
+                              <SelectValue placeholder={t('selectNumberOfPassengers')} />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="1">1 Passenger</SelectItem>
-                              <SelectItem value="2">2 Passengers</SelectItem>
-                              <SelectItem value="3">3 Passengers</SelectItem>
-                              <SelectItem value="4">4+ Passengers</SelectItem>
-                              <SelectItem value="team">Full Team</SelectItem>
+                              <SelectItem value="1">1 {t('passengers')}</SelectItem>
+                              <SelectItem value="2">2 {t('passengers')}</SelectItem>
+                              <SelectItem value="3">3 {t('passengers')}</SelectItem>
+                              <SelectItem value="4">4+ {t('passengers')}</SelectItem>
+                              <SelectItem value="team">{t('teamManagement')}</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         
                         <div className="space-y-2">
-                          <Label htmlFor="airport-datetime">Flight Date & Time</Label>
+                          <Label htmlFor="airport-datetime">{t('date')} & {t('time')}</Label>
                           <Input
                             id="airport-datetime"
                             type="datetime-local"
@@ -212,15 +215,15 @@ const AFCDashboard: React.FC = () => {
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="airport-notes">Additional Notes</Label>
+                        <Label htmlFor="airport-notes">{t('notes')}</Label>
                         <Input
                           id="airport-notes"
-                          placeholder="Flight number, special requirements, etc."
+                          placeholder={t('anySpecialRequirementsOrNotes')}
                         />
                       </div>
                       
                       <Button type="submit" className="w-full">
-                        Request Ride
+                        {t('requestRide')}
                       </Button>
                     </form>
                   </TabsContent>
@@ -233,8 +236,8 @@ const AFCDashboard: React.FC = () => {
           <div className="md:col-span-2">
             <Card className="h-full">
               <CardHeader>
-                <CardTitle>My Rides</CardTitle>
-                <CardDescription>Your upcoming transportation</CardDescription>
+                <CardTitle>{t('myRides')}</CardTitle>
+                <CardDescription>{t('schedule')}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -272,10 +275,10 @@ const AFCDashboard: React.FC = () => {
                           <span className={`text-xs px-2 py-1 rounded-full ${
                             ride.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
                           }`}>
-                            {ride.status === 'confirmed' ? 'Confirmed' : 'Pending'}
+                            {ride.status === 'confirmed' ? t('completed') : t('pending')}
                           </span>
                           
-                          <Button variant="ghost" size="sm" className="text-xs">View Details</Button>
+                          <Button variant="ghost" size="sm" className="text-xs">{t('status')}</Button>
                         </div>
                       </CardContent>
                     </Card>
