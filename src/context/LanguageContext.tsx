@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'en' | 'ar' | 'ur';
@@ -158,6 +157,27 @@ export const translations = {
     passengers: 'Passengers',
     today: 'Today',
     yesterday: 'Yesterday',
+    
+    // New translations
+    pageNotFound: 'Page Not Found',
+    pageNotFoundMessage: 'Sorry, we couldn\'t find the page you\'re looking for. It might have been moved or doesn\'t exist.',
+    backToDashboard: 'Back to Dashboard',
+    calendar: 'Calendar',
+    legend: 'Legend',
+    matchDay: 'Match Day',
+    transfer: 'Transfer',
+    training: 'Training',
+    media: 'Media',
+    filterView: 'Filter View',
+    filterEvents: 'Filter events',
+    allEvents: 'All Events',
+    matchDays: 'Match Days',
+    airportTransfers: 'Airport Transfers',
+    trainingSessions: 'Training Sessions',
+    eventSchedule: 'Event Schedule',
+    weeklyView: 'Weekly View',
+    airport: 'Airport',
+    matches: 'Matches',
   },
   ar: {
     // Common
@@ -232,7 +252,7 @@ export const translations = {
     updateYourAccountInfo: 'تحديث تفاصيل حسابك',
     name: 'الاسم',
     email: 'البريد الإلكتروني',
-    bio: 'السيرة الذاتية',
+    bio: 'الس��رة الذاتية',
     saveChanges: 'حفظ التغييرات',
     loginSettings: 'إعدادات تسجيل الدخول',
     manageYourLoginInformation: 'تغيير كلمة المرور الخاصة بك',
@@ -312,6 +332,27 @@ export const translations = {
     passengers: 'الركاب',
     today: 'اليوم',
     yesterday: 'أمس',
+    
+    // New translations
+    pageNotFound: 'الصفحة غير موجودة',
+    pageNotFoundMessage: 'عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. قد تكون انتقلت أو غير موجودة.',
+    backToDashboard: 'العودة إلى لوحة المعلومات',
+    calendar: 'التقويم',
+    legend: 'المفتاح',
+    matchDay: 'يوم المباراة',
+    transfer: 'نقل',
+    training: 'تدريب',
+    media: 'الإعلام',
+    filterView: 'تصفية العرض',
+    filterEvents: 'تصفية الأحداث',
+    allEvents: 'جميع الأحداث',
+    matchDays: 'أيام المباريات',
+    airportTransfers: 'نقل المطار',
+    trainingSessions: 'جلسات التدريب',
+    eventSchedule: 'جدول الأحداث',
+    weeklyView: 'العرض الأسبوعي',
+    airport: 'المطار',
+    matches: 'المباريات',
   },
   ur: {
     // Common
@@ -397,7 +438,7 @@ export const translations = {
     notificationSettings: 'نوٹیفکیشن کی ترتیبات',
     manageYourNotificationPreferences: 'اپنی نوٹیفکیشن ترجیحات کا انتظام کریں',
     rideAlerts: 'سواری الرٹس',
-    receiveAlertsForNewRideAssignments: 'نئی سواری اسائنمنٹس کے لئے الرٹس حاصل کریں',
+    receiveAlertsForNewRideAssignments: 'نئی سواری اسaignمنٹس کے لئے الرٹس حاصل کریں',
     scheduleChanges: 'شیڈول میں تبدیلیاں',
     notifyMeWhenMyScheduleChanges: 'مجھے مطلع کریں جب میرا شیڈول تبدیل ہو',
     teamMessages: 'ٹیم کے پیغامات',
@@ -466,6 +507,27 @@ export const translations = {
     passengers: 'مسافر',
     today: 'آج',
     yesterday: 'کل',
+    
+    // New translations
+    pageNotFound: 'صفحہ نہیں ملا',
+    pageNotFoundMessage: 'معذرت، ہم وہ صفحہ نہیں ڈھونڈ سکے جسے آپ تلاش کر رہے ہیں۔ یہ منتقل ہو سکتا ہے یا موجود نہیں ہے۔',
+    backToDashboard: 'ڈیش بورڈ پر واپس جائیں',
+    calendar: 'کیلنڈر',
+    legend: 'علامات کی تشریح',
+    matchDay: 'میچ کا دن',
+    transfer: 'منتقلی',
+    training: 'تربیت',
+    media: 'میڈیا',
+    filterView: 'فلٹر ویو',
+    filterEvents: 'تقریبات فلٹر کریں',
+    allEvents: 'تمام تقریبات',
+    matchDays: 'میچز کے دن',
+    airportTransfers: 'ہوائی اڈے کی منتقلی',
+    trainingSessions: 'تربیتی سیشنز',
+    eventSchedule: 'تقریبات کا شیڈول',
+    weeklyView: 'ہفتہ وار نظارہ',
+    airport: 'ہوائی اڈہ',
+    matches: 'میچز',
   }
 };
 

@@ -3,8 +3,11 @@ import React from 'react';
 import { Bell, MessageSquare, Search, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLanguage } from '@/context/LanguageContext';
 
 const DashboardHeader: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <header className="border-b border-border/40 bg-background">
       <div className="flex h-16 items-center px-4 sm:px-6">
@@ -19,7 +22,7 @@ const DashboardHeader: React.FC = () => {
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input 
               type="search" 
-              placeholder="Search..." 
+              placeholder={t('search')} 
               className="w-[200px] lg:w-[280px] pl-8 bg-background" 
             />
           </div>

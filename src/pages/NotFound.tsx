@@ -16,9 +16,9 @@ const NotFound = () => {
             <MapPin className="h-12 w-12 text-muted-foreground" />
           </div>
         </div>
-        <h1 className="text-4xl font-bold">Page Not Found</h1>
+        <h1 className="text-4xl font-bold">{t('pageNotFound')}</h1>
         <p className="text-muted-foreground max-w-md mx-auto">
-          Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.
+          {t('pageNotFoundMessage')}
         </p>
         <div className="pt-6">
           <Button asChild>

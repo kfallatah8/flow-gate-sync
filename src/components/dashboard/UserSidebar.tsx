@@ -19,10 +19,11 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { UserRole } from '@/context/AuthContext';
 import { useAuth } from '@/context/AuthContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface NavItem {
   icon: React.ElementType;
-  label: string;
+  labelKey: string;
   href: string;
   roles: UserRole[];
 }
@@ -31,6 +32,7 @@ const UserSidebar: React.FC = () => {
   const { currentUser } = useAuth();
   const location = useLocation();
   const [collapsed, setCollapsed] = React.useState(false);
+  const { t } = useLanguage();
 
   if (!currentUser) return null;
 
@@ -39,67 +41,67 @@ const UserSidebar: React.FC = () => {
   const navItems: NavItem[] = [
     { 
       icon: Home, 
-      label: 'Overview', 
+      labelKey: 'dashboard', 
       href: `/${role}`,
       roles: ['manager', 'afc', 'driver'] 
     },
     { 
       icon: Users, 
-      label: 'Team Management', 
+      labelKey: 'teamManagement', 
       href: '/team',
       roles: ['manager'] 
     },
     { 
       icon: Truck, 
-      label: 'Fleet Management', 
+      labelKey: 'fleetManagement', 
       href: '/fleet',
       roles: ['manager'] 
     },
     { 
       icon: FileInput, 
-      label: 'Form Submissions', 
+      labelKey: 'formSubmissions', 
       href: '/form-submissions',
       roles: ['manager'] 
     },
     { 
       icon: MessageSquare, 
-      label: 'Messaging', 
+      labelKey: 'messaging', 
       href: '/messaging',
       roles: ['manager'] 
     },
     { 
       icon: MapPin, 
-      label: 'Request Ride', 
+      labelKey: 'requestRide', 
       href: '/request',
       roles: ['afc'] 
     },
     { 
       icon: Truck, 
-      label: 'My Rides', 
+      labelKey: 'myRides', 
       href: '/my-rides',
       roles: ['driver'] 
     },
     { 
       icon: CalendarDays, 
-      label: 'Schedule', 
+      labelKey: 'schedule', 
       href: '/schedule',
       roles: ['manager', 'afc', 'driver'] 
     },
     { 
       icon: FileText, 
-      label: 'Guidelines', 
+      labelKey: 'guidelines', 
       href: '/guidelines',
       roles: ['manager', 'afc', 'driver'] 
     },
     { 
       icon: CheckSquare, 
-      label: 'Daily Tasks', 
+      labelKey: 'dailyTasks', 
       href: '/tasks',
       roles: ['driver', 'manager'] 
     },
     { 
       icon: Settings, 
-      label: 'Settings', 
+      labelKey: 'settings', 
       href: '/settings',
       roles: ['manager', 'afc', 'driver'] 
     }
@@ -119,7 +121,7 @@ const UserSidebar: React.FC = () => {
           <div className="rounded-md bg-primary p-1">
             <Activity className="h-6 w-6 text-primary-foreground" strokeWidth={2.5} />
           </div>
-          {!collapsed && <span className="font-bold text-xl">FlowGate</span>}
+          {!collapsed && <span className="font-bold text-xl">{t('appName')}</span>}
         </Link>
         <Button 
           variant="ghost" 
@@ -144,7 +146,7 @@ const UserSidebar: React.FC = () => {
                 )}
               >
                 <item.icon className="h-5 w-5" />
-                {!collapsed && <span>{item.label}</span>}
+                {!collapsed && <span>{t(item.labelKey)}</span>}
               </Button>
             </Link>
           ))}

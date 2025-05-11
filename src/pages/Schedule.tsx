@@ -10,9 +10,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { MapPin, Clock, Calendar as CalendarIcon, ChevronLeft, ChevronRight, Users, Bus, Car } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Schedule: React.FC = () => {
   const { currentUser } = useAuth();
+  const { t } = useLanguage();
   const role = currentUser?.role || 'afc';
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [month, setMonth] = useState<Date>(new Date());
@@ -128,14 +130,14 @@ const Schedule: React.FC = () => {
   };
 
   return (
-    <DashboardLayout title="Schedule">
+    <DashboardLayout title={t('schedule')}>
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-6 md:grid-cols-12">
           {/* Calendar Sidebar */}
           <Card className="md:col-span-4">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle>Calendar</CardTitle>
+                <CardTitle>{t('calendar')}</CardTitle>
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="icon" onClick={prevMonth}>
                     <ChevronLeft className="h-4 w-4" />
@@ -157,26 +159,26 @@ const Schedule: React.FC = () => {
               
               <div className="mt-6 space-y-4">
                 <div className="space-y-1">
-                  <h4 className="font-medium text-sm">Legend</h4>
+                  <h4 className="font-medium text-sm">{t('legend')}</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-primary">Match Day</Badge>
-                    <Badge variant="secondary">Transfer</Badge>
-                    <Badge variant="outline">Training</Badge>
-                    <Badge variant="destructive">Media</Badge>
+                    <Badge className="bg-primary">{t('matchDay')}</Badge>
+                    <Badge variant="secondary">{t('transfer')}</Badge>
+                    <Badge variant="outline">{t('training')}</Badge>
+                    <Badge variant="destructive">{t('media')}</Badge>
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <h4 className="font-medium text-sm">Filter View</h4>
+                  <h4 className="font-medium text-sm">{t('filterView')}</h4>
                   <Select defaultValue="all">
                     <SelectTrigger>
-                      <SelectValue placeholder="Filter events" />
+                      <SelectValue placeholder={t('filterEvents')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Events</SelectItem>
-                      <SelectItem value="match">Match Days</SelectItem>
-                      <SelectItem value="airport">Airport Transfers</SelectItem>
-                      <SelectItem value="training">Training Sessions</SelectItem>
+                      <SelectItem value="all">{t('allEvents')}</SelectItem>
+                      <SelectItem value="match">{t('matchDays')}</SelectItem>
+                      <SelectItem value="airport">{t('airportTransfers')}</SelectItem>
+                      <SelectItem value="training">{t('trainingSessions')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -187,14 +189,14 @@ const Schedule: React.FC = () => {
           {/* Schedule Content */}
           <Card className="md:col-span-8">
             <CardHeader>
-              <CardTitle>Event Schedule</CardTitle>
+              <CardTitle>{t('eventSchedule')}</CardTitle>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="weekly">
                 <TabsList className="grid w-full grid-cols-3">
-                  <TabsTrigger value="weekly">Weekly View</TabsTrigger>
-                  <TabsTrigger value="airport">Airport</TabsTrigger>
-                  <TabsTrigger value="matches">Matches</TabsTrigger>
+                  <TabsTrigger value="weekly">{t('weeklyView')}</TabsTrigger>
+                  <TabsTrigger value="airport">{t('airport')}</TabsTrigger>
+                  <TabsTrigger value="matches">{t('matches')}</TabsTrigger>
                 </TabsList>
                 
                 {/* Weekly View */}
