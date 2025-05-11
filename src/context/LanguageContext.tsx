@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type Language = 'en' | 'ar' | 'ur';
@@ -43,7 +44,6 @@ export const translations = {
     driverTeam: 'Driver Team',
     securityTeam: 'Security Team',
     afcTeam: 'AFC Team',
-    pending: 'Pending',
     
     // Team Management
     teamMembers: 'Team Members',
@@ -198,7 +198,6 @@ export const translations = {
     driverTeam: 'فريق السائقين',
     securityTeam: 'فريق الأمن',
     afcTeam: 'فريق AFC',
-    pending: 'قيد الانتظار',
     
     // Team Management
     teamMembers: 'أعضاء الفريق',
@@ -242,7 +241,7 @@ export const translations = {
     confirmPassword: 'تأكيد كلمة المرور',
     updatePassword: 'تحديث كلمة المرور',
     notificationSettings: 'إعدادات الإشعارات',
-    manageYourNotificationPreferences: 'اختر ال��شعارات التي تتلقاها',
+    manageYourNotificationPreferences: 'اختر الإشعارات التي تتلقاها',
     rideAlerts: 'تنبيهات الرحلات',
     receiveAlertsForNewRideAssignments: 'استلام تنبيهات للرحلات الجديدة',
     scheduleChanges: 'تغييرات الجدول',
@@ -353,7 +352,6 @@ export const translations = {
     driverTeam: 'ڈرائیور ٹیم',
     securityTeam: 'سکیورٹی ٹیم',
     afcTeam: 'اے ایف سی ٹیم',
-    pending: 'زیر التواء',
     
     // Team Management
     teamMembers: 'ٹیم کے ارکان',
